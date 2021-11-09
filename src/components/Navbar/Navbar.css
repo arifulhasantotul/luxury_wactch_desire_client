@@ -1,0 +1,191 @@
+.toggle_btn {
+   background-color: #e4e9f7;
+   border: none;
+   width: 3.5rem;
+   height: 3.5rem;
+   border-radius: 50%;
+   margin: 0.5rem 0 0 0.5rem;
+   cursor: pointer;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: fixed;
+   top: 10px;
+   z-index: 1000;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   margin-left: 2.7rem;
+}
+.toggle_btn::before,
+.toggle_btn::after {
+   position: absolute;
+   content: "";
+   background-color: #161616;
+   height: 0.25rem;
+   width: 1.5rem;
+   transition: all 0.4s ease;
+}
+.toggle_btn::before {
+   top: 1.3rem;
+}
+.toggle_btn::after {
+   bottom: 1.3rem;
+}
+.close.toggle_btn::before {
+   top: 50%;
+   transform: translateY(-50%) rotate(135deg);
+}
+.close.toggle_btn::after {
+   bottom: 50%;
+   transform: translateY(50%) rotate(-135deg);
+}
+.sidebar {
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 100%;
+   background: var(--bg);
+   width: calc(200px + 2vw);
+   z-index: 999;
+   transition: all 0.5s ease;
+   padding: 5rem 0;
+   overflow-x: hidden;
+   overflow-y: auto;
+}
+.sidebar::-webkit-scrollbar {
+   display: none;
+}
+.sidebar.close {
+   width: 7.8rem;
+}
+.sidebar .sidebar_logo {
+   min-width: 7.8rem;
+   color: var(--white);
+   display: flex;
+   align-items: center;
+   text-align: center;
+   margin-left: 2.7rem;
+   padding: 3rem 0 1.5rem 0;
+}
+.sidebar .sidebar_logo .logo_name {
+   font-size: 2rem;
+   font-weight: 600;
+   margin-left: 2rem;
+}
+.sidebar.close .sidebar_logo .logo_name {
+   display: none;
+}
+.sidebar .nav_menu_items {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.sidebar .nav_menu_items .menu_row {
+   display: flex;
+   align-items: center;
+}
+.sidebar .nav_menu_items .nav_link {
+   padding: 1.5rem 0;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding-left: 1rem;
+}
+.sidebar .nav_menu_items .nav_link.selected .link_name {
+   color: var(--sidebar_bg);
+   font-weight: 500;
+}
+.sidebar .nav_menu_items .nav_link.selected {
+   background: var(--content_bg);
+   border-radius: 3rem 0 0 3rem;
+}
+.sidebar .nav_menu_items .nav_link.selected svg {
+   fill: var(--sidebar_bg);
+}
+.sidebar .nav_menu_items .nav_link:hover {
+   background: var(--content_bg);
+   border-radius: 3rem 0 0 3rem;
+}
+.sidebar .nav_menu_items .nav_link:hover svg {
+   fill: var(--sidebar_bg);
+}
+.sidebar .nav_menu_items .nav_link:hover.nav_link .link_name {
+   color: var(--sidebar_bg);
+   font-weight: 500;
+}
+.sidebar .nav_menu_items .nav_link .link_name {
+   font-size: 1.8rem;
+   margin-left: 3rem;
+   color: #fff;
+}
+.sidebar.close .nav_menu_items .nav_link .link_name {
+   display: none;
+}
+.sidebar .nav_menu_items .nav_link .arrow {
+   padding: 0 0.7rem;
+}
+.sidebar .nav_menu_items .sub_nav_link {
+   padding: 1.1rem 0;
+   margin-left: 1.5rem;
+   display: flex;
+   align-items: center;
+}
+.sidebar .nav_menu_items .sub_nav_link:hover,
+.sidebar .nav_menu_items .sub_nav_link.active {
+   background: var(--light_dark);
+   border-right: 0.5rem solid var(--white);
+}
+.sidebar .nav_menu_items .sub_nav_link .sub_link_name {
+   margin-left: 1.5rem;
+   font-size: 1.5rem;
+   color: var(--white);
+}
+.sidebar.close .nav_menu_items .sub_nav_link .sub_link_name {
+   display: none;
+}
+.sidebar .profile_details {
+   position: fixed;
+   bottom: 0;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   background: var(--light_dark);
+   padding: 0.6rem 0;
+   width: calc(200px + 2vw);
+   transition: all 0.3s ease;
+}
+.sidebar.close .profile_details {
+   width: 7.8rem;
+}
+.sidebar .profile_details .profile_content {
+   display: flex;
+   align-items: center;
+}
+.sidebar .profile_details img {
+   height: 5.2rem;
+   width: 5.2rem;
+   object-fit: cover;
+   border-radius: 1.6rem;
+   background: var(--sidebar_bg);
+   padding: 5px;
+   margin: 0 1.4rem 0 1.2rem;
+}
+.sidebar .profile_details .profile_name,
+.sidebar .profile_details .job {
+   font-weight: 500;
+   color: var(--white);
+   font-size: 1.8rem;
+   white-space: nowrap;
+}
+.sidebar .profile_details .job {
+   font-size: 1.2rem;
+}
+.sidebar .profile_details .logout_icon .navbar_user_btn {
+   background: transparent;
+   border: none;
+   outline: none;
+}
+.sidebar.close .profile_details .profile_name,
+.sidebar.close .profile_details .logout_icon,
+.sidebar.close .profile_details .job {
+   display: none;
+}
