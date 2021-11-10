@@ -2,11 +2,60 @@ import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import * as MdIcons from "react-icons/md";
 import Rating from "react-rating";
+// import { useHistory } from "react-router-dom";
 import DetailsModal from "../../../components/DetailsModal/DetailsModal";
+import useAuth from "../../../hooks/useAuth";
 
 const Product = ({ watch }) => {
+   const { user } = useAuth();
+   // const history = useHistory();
    const [modalShow, setModalShow] = useState(false);
+   console.log(watch);
    const { name, details, offerPrice, price, rating, img } = watch;
+
+   const handleOrder = () => {
+      const buyer = user.displayName;
+      const email = user.email;
+      const status = "Pending";
+      const newCart = {
+         buyer,
+         email,
+         name,
+         details,
+         offerPrice,
+         price,
+         rating,
+         img,
+         status,
+      };
+
+      const url = `http://localhost:8080/orders`;
+      fetch(url, {
+         method: "POST",
+         headers: {
+            "content-type": "application/json",
+         },
+         body: JSON.stringify(newCart),
+      })
+         .then((res) => res.json())
+         .then((data) => {
+            console.log(data);
+            if (data.insertedId && !user.email) {
+               alert(
+                  "Successfully added to order list but you have to login to see orders list"
+               );
+               // history.push(`orders/myOrders/${_id}`);
+            }
+            if (data.insertedId && user.email) {
+               alert("Successfully added to order list");
+               // history.push(`orders/myOrders/${_id}`);
+            }
+         })
+         .catch((error) => {
+            console.log(error.message);
+         });
+   };
+
    return (
       <div className="col-12 col-md-8 col-lg-7 col-xl-6 mx-auto">
          <div className="box">
@@ -53,7 +102,11 @@ const Product = ({ watch }) => {
                   {" "}
                   ${offerPrice} <span>${price}</span>
                </div>
-               <button style={{ width: "100%" }} className="btn_book">
+               <button
+                  style={{ width: "100%" }}
+                  className="btn_book"
+                  onClick={handleOrder}
+               >
                   <MdIcons.MdAddShoppingCart
                      style={{
                         marginBottom: "0.5rem",
