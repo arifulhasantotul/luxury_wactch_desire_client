@@ -39,7 +39,6 @@ const HomeSlider = () => {
                      <button
                         style={{
                            width: "30%",
-                           // display: "block",
                         }}
                         onClick={goToProducts}
                         className="btn_book"
