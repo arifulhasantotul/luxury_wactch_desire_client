@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar/Navbar";
 import AuthProvider from "./context/AuthProvider";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/User/Login/Login";
+import Register from "./Pages/User/Register/Register";
 
 function App() {
    return (
@@ -24,6 +25,9 @@ function App() {
                   </Route>
                   <Route path="/login">
                      <Login />
+                  </Route>
+                  <Route path="/register">
+                     <Register />
                   </Route>
                </Switch>
             </Router>

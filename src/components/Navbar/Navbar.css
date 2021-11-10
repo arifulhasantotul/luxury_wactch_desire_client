@@ -148,7 +148,7 @@
    display: flex;
    align-items: center;
    justify-content: space-between;
-   background: var(--light_dark);
+   background: var(--bg_dark);
    padding: 0.6rem 0;
    width: calc(200px + 2vw);
    transition: all 0.3s ease;

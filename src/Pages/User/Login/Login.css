@@ -15,7 +15,7 @@
    text-align: left;
 }
 .form_login {
-   max-width: 550px;
+   max-width: 55rem;
    margin: 0 auto;
    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
    border-radius: 0.5rem;
