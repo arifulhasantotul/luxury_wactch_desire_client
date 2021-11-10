@@ -4,19 +4,31 @@ import "swiper/swiper-bundle.css";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
+import AuthProvider from "./context/AuthProvider";
 import Home from "./Pages/Home/Home";
+import Login from "./Pages/User/Login/Login";
 
 function App() {
    return (
-      <Router>
-         <Navbar />
-         <Header />
-         <Switch>
-            <Route exact="/">
-               <Home />
-            </Route>
-         </Switch>
-      </Router>
+      <>
+         <AuthProvider>
+            <Router>
+               <Navbar />
+               <Header />
+               <Switch>
+                  <Route exact path="/">
+                     <Home />
+                  </Route>
+                  <Route path="/home">
+                     <Home />
+                  </Route>
+                  <Route path="/login">
+                     <Login />
+                  </Route>
+               </Switch>
+            </Router>
+         </AuthProvider>
+      </>
    );
 }
 
