@@ -3,9 +3,14 @@ import * as BsIcons from "react-icons/bs";
 import * as GrIcons from "react-icons/gr";
 import * as HiIcons from "react-icons/hi";
 import * as RiIcons from "react-icons/ri";
+import { useHistory } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
+   const history = useHistory();
+   const goToOrders = () => {
+      history.push("/myOrders");
+   };
    return (
       <div className="header">
          <nav className="header_navbar">
@@ -24,7 +29,7 @@ const Header = () => {
                   <li className="nav_icon">
                      <RiIcons.RiHeartsFill />
                   </li>
-                  <li className="nav_icon">
+                  <li className="nav_icon" onClick={goToOrders}>
                      <HiIcons.HiShoppingCart />
                   </li>
                </ul>

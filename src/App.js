@@ -7,10 +7,10 @@ import Navbar from "./components/Navbar/Navbar";
 import NotFound from "./components/NotFound/NotFound";
 import AuthProvider from "./context/AuthProvider";
 import Home from "./Pages/Home/Home";
+import MyOrders from "./Pages/OrdersPage/MyOrders/MyOrders";
 import Products from "./Pages/ProductsPage/Products/Products";
 import Login from "./Pages/User/Login/Login";
 import Register from "./Pages/User/Register/Register";
-import MyOrders from "./Pages/OrdersPage/MyOrders/MyOrders";
 
 function App() {
    return (
@@ -32,7 +32,7 @@ function App() {
                   <Route path="/login">
                      <Login />
                   </Route>
-                  <Route path="/orders/myOrders/:orderId">
+                  <Route path="/myOrders">
                      <MyOrders />
                   </Route>
                   <Route path="/register">

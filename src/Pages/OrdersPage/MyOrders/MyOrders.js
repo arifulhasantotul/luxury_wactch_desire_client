@@ -26,12 +26,13 @@ const MyOrders = () => {
    return (
       <section className="container-fluid watch_wrapper">
          <h1 className="heading">
-            <span>w</span>
-            <span>a</span>
-            <span>t</span>
-            <span>c</span>
-            <span>h</span>
-            <span>e</span>
+            <span>m</span>
+            <span>y</span>
+            <span className="space"></span>
+            <span>o</span>
+            <span>r</span>
+            <span>d</span>
+            <span>r</span>
             <span>s</span>
          </h1>
          <article className="row row-cols-1 g-4 justify-content-center">

@@ -48,12 +48,12 @@ li {
 .header {
    position: relative;
    left: 220px;
-   max-width: calc(100% - 220px);
+   width: calc(100% - 220px);
    transition: all 0.3s ease;
 }
 .sidebar.close ~ .header {
    left: 78px;
-   max-width: calc(100% - 78px);
+   width: calc(100% - 78px);
 }
 .heading {
    text-align: center;
@@ -103,15 +103,42 @@ li {
    html {
       font-size: 59%;
    }
+   .header {
+      left: 215px;
+      width: calc(100% - 215px);
+   }
+   .sidebar.close ~ .header {
+      left: 68px;
+      width: calc(100% - 68px);
+   }
 }
 @media (max-width: 768px) {
    html {
       font-size: 55%;
    }
+   .header {
+      left: 210px;
+      width: calc(100% - 210px);
+   }
+   .sidebar.close ~ .header {
+      left: 72px;
+      width: calc(100% - 72px);
+   }
 }
 @media (max-width: 450px) {
    html {
       font-size: 48%;
+   }
+   .header {
+      left: 205px;
+      width: calc(100% - 205px);
+   }
+   .sidebar.close ~ .header {
+      left: 58px;
+      width: calc(100% - 58px);
+   }
+   .heading {
+      padding-left: 3rem;
    }
    .home_slider .slide_item {
       padding-left: 12%;
