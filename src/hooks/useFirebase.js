@@ -1,9 +1,12 @@
 import {
+   createUserWithEmailAndPassword,
    getAuth,
    GoogleAuthProvider,
    onAuthStateChanged,
+   signInWithEmailAndPassword,
    signInWithPopup,
    signOut,
+   updateProfile,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { initAuthentication } from "../Firebase/firebase.init";
@@ -18,6 +21,7 @@ const useFirebase = () => {
    const auth = getAuth();
    const googleProvider = new GoogleAuthProvider();
 
+   // google sign in
    const signInUsingGoogle = (history, redirect_uri) => {
       setIsLoading(true);
       signInWithPopup(auth, googleProvider)
@@ -25,6 +29,48 @@ const useFirebase = () => {
             console.log(result.user);
             history.push(redirect_uri);
             setAuthError("");
+         })
+         .catch((error) => {
+            setAuthError(error.message);
+         })
+         .finally(() => setIsLoading(false));
+   };
+
+   // create user email
+   const registerUserEmail = (name, email, password, history, redirect_uri) => {
+      setIsLoading(true);
+      createUserWithEmailAndPassword(auth, email, password)
+         .then((result) => {
+            const newUser = { displayName: name, email };
+            console.log(newUser);
+            setUser(newUser);
+
+            // send name to firebase
+            updateProfile(auth.currentUser, {
+               displayName: name,
+            })
+               .then(() => {
+                  // Profile updated!
+                  // ...
+               })
+               .catch((error) => {
+                  // An error occurred
+                  // ...
+               });
+            history.push(redirect_uri);
+         })
+         .catch((error) => {
+            setAuthError(error.message);
+         })
+         .finally(() => setIsLoading(false));
+   };
+   // login user
+   const loginUserEmail = (email, password, history, redirect_uri) => {
+      setIsLoading(true);
+      signInWithEmailAndPassword(auth, email, password)
+         .then((result) => {
+            setAuthError("");
+            history.push(redirect_uri);
          })
          .catch((error) => {
             setAuthError(error.message);
@@ -65,6 +111,8 @@ const useFirebase = () => {
       authError,
       setAuthError,
       signInUsingGoogle,
+      registerUserEmail,
+      loginUserEmail,
       logout,
    };
 };

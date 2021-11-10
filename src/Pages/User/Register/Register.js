@@ -9,7 +9,13 @@ import "../Login/Login.css";
 const Register = () => {
    const location = useLocation();
    const history = useHistory();
-   const { signInUsingGoogle, isLoading, registerUserEmail } = useAuth();
+   const {
+      signInUsingGoogle,
+      isLoading,
+      registerUserEmail,
+      setAuthError,
+      authError,
+   } = useAuth();
    const {
       register,
       handleSubmit,
@@ -22,9 +28,17 @@ const Register = () => {
       signInUsingGoogle(history, redirect_uri);
    };
    const onSubmit = (data) => {
-      console.log(data);
+      if (data.password < 6) {
+         setAuthError("Password should be more then 6 character");
+         return;
+      }
+      if (data.password !== data.checkPassword) {
+         setAuthError("Your password did not match");
+         return;
+      }
+
       registerUserEmail(
-         data.name,
+         data.displayName,
          data.email,
          data.password,
          history,
@@ -43,7 +57,7 @@ const Register = () => {
             <span>e</span>
             <span>r</span>
          </h1>
-         {/* {authError && <div style={{ color: "red" }}></div>} */}
+         {authError && <div style={{ color: "red" }}></div>}
          {!isLoading && (
             <form className="form_login" onSubmit={handleSubmit(onSubmit)}>
                <div className="input_field">
@@ -83,7 +97,7 @@ const Register = () => {
                   <span>Re-enter Password</span>
                   <input
                      type="password"
-                     {...register("checkPassword", { required: false })}
+                     {...register("checkPassword", { required: true })}
                   />
 
                   {errors.checkPassword && (

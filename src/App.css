@@ -92,8 +92,12 @@ li {
 .swiper-pagination-bullet {
    background: var(--white);
 }
+
 .swiper-pagination-bullet-active {
    background: var(--orange);
+}
+.swiper-pagination-fraction {
+   color: var(--orange);
 }
 @media (max-width: 1024px) {
    html {

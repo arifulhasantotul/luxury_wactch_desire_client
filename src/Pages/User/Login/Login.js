@@ -9,7 +9,7 @@ import "./Login.css";
 const Login = () => {
    const location = useLocation();
    const history = useHistory();
-   const { signInUsingGoogle, isLoading } = useAuth();
+   const { signInUsingGoogle, isLoading, loginUserEmail } = useAuth();
    const {
       register,
       handleSubmit,
@@ -23,7 +23,7 @@ const Login = () => {
    };
    const onSubmit = (data) => {
       console.log(data);
-      // signInWithEmail(data.email, data.password, redirect_uri);
+      loginUserEmail(data.email, data.password, history, redirect_uri);
    };
    return (
       <div className="container-fluid form_wrapper">
