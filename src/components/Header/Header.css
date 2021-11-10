@@ -1,6 +1,6 @@
 .header {
    background: var(--bg);
-   box-shadow: var(--box-shadow);
+   box-shadow: var(--box_shadow);
 }
 .header_navbar {
    width: 100%;
@@ -32,7 +32,7 @@
 }
 .header_navbar .navbar_list .navbar_icons .nav_icon {
    font-size: 2.5rem;
-   background: var(--fade-white);
+   background: var(--fade_white);
    padding: 0.4rem 1rem;
    margin-right: 2rem;
    border-radius: 50%;

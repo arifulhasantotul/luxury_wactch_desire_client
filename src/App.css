@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap");
 
 :root {
-   --orange: #ffa500;
+   --orange: #a8741a;
    --bg: #242424;
    --bg_dark: #171717;
    --sidebar_bg: #333;
@@ -9,11 +9,11 @@
    --white: #fff;
    --content_bg: #e4e9f7;
    --light_dark: rgba(0, 0, 0, 0.5);
-   --light-color: #666;
-   --fade-white: #eee;
+   --light_color: #666;
+   --fade_white: #eee;
    --bg_btn__hover: rgba(255, 165, 0, 0.2);
-   --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
-   --card-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+   --box_shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+   --card_shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
       rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
@@ -74,8 +74,8 @@ li {
 .btn_book {
    display: inline-block;
    margin-top: 1rem;
-   background: var(--orange);
-   color: var(--white);
+   background: var(--bg);
+   color: var(--light_color);
    padding: 0.8rem 3rem;
    border: 0.2rem solid var(--orange);
    cursor: pointer;
@@ -84,8 +84,14 @@ li {
 }
 
 .btn_book:hover {
-   background: var(--bg_btn__hover);
-   color: var(--orange);
+   background: var(--orange);
+   color: var(--white);
+}
+.swiper-pagination-bullet {
+   background: var(--white);
+}
+.swiper-pagination-bullet-active {
+   background: var(--orange);
 }
 @media (max-width: 1024px) {
    html {
