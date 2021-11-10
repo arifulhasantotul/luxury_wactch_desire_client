@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import * as FaIcons from "react-icons/fa";
 import Rating from "react-rating";
@@ -10,17 +10,43 @@ import SwiperCore, {
    Virtual,
 } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { reviewData } from "./ReviewData";
+import SkeletonPackages from "../Skeleton/SkeletonPackages";
 import "./ReviewSec.css";
 
 SwiperCore.use([Virtual, EffectCoverflow, Pagination, Autoplay, Keyboard]);
 
 const ReviewSec = () => {
+   const [reviews, setReviews] = useState([]);
+   const [reviewsLoading, setReviewsLoading] = useState(true);
+
+   useEffect(() => {
+      setReviewsLoading(true);
+      const url = `http://localhost:8080/reviews`;
+      fetch(url)
+         .then((res) => res.json())
+         .then((data) => {
+            setReviews(data);
+         })
+         .catch((error) => console.l(error))
+         .finally(() => setReviewsLoading(false));
+   }, []);
+
    return (
-      <Container className="review">
-         <h3 className="sub_heading">Customer's review</h3>
-         <h1 className="heading">what they say</h1>
-         {reviewData.length > 0 && (
+      <Container fluid className="review">
+         <h1 className="heading">
+            <span>t</span>
+            <span>e</span>
+            <span>s</span>
+            <span>t</span>
+            <span>i</span>
+            <span>m</span>
+            <span>o</span>
+            <span>n</span>
+            <span>i</span>
+            <span>a</span>
+            <span>l</span>
+         </h1>
+         {reviews.length > 0 && (
             <Swiper
                effect={"coverflow"}
                coverflowEffect={{
@@ -54,29 +80,34 @@ const ReviewSec = () => {
                }}
                virtual
             >
-               {reviewData.map((item, index) => (
-                  <SwiperSlide key={index} className="slide">
-                     <span className="review_quote">
-                        {" "}
-                        <FaIcons.FaQuoteRight />
-                     </span>
-                     <div className="user">
-                        <img src={item.avatar} alt="" />
-                        <div className="user_info">
-                           <h3>{item.name}</h3>
-                           <span className="review_star">
-                              <Rating
-                                 initialRating={item.rating}
-                                 emptySymbol={<FaIcons.FaRegStar />}
-                                 fullSymbol={<FaIcons.FaStar />}
-                                 readonly
-                              />
-                           </span>
+               {!reviewsLoading &&
+                  reviews.map((item, index) => (
+                     <SwiperSlide key={index} className="slide">
+                        <span className="review_quote">
+                           {" "}
+                           <FaIcons.FaQuoteRight />
+                        </span>
+                        <div className="user">
+                           <img src={item.avatar} alt="" />
+                           <div className="user_info">
+                              <h3>{item.name}</h3>
+                              <span className="review_star">
+                                 <Rating
+                                    initialRating={item.rating}
+                                    emptySymbol={<FaIcons.FaRegStar />}
+                                    fullSymbol={<FaIcons.FaStar />}
+                                    readonly
+                                 />
+                              </span>
+                           </div>
                         </div>
-                     </div>
-                     <p>{item.comment}</p>
-                  </SwiperSlide>
-               ))}
+                        <p>{item.comment.slice(0, 200)}</p>
+                     </SwiperSlide>
+                  ))}
+               {reviewsLoading &&
+                  [1, 2, 3, 4, 5, 6].map((n) => (
+                     <SkeletonPackages key={n} theme="dark" />
+                  ))}
             </Swiper>
          )}
       </Container>

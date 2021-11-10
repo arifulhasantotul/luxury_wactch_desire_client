@@ -1,5 +1,6 @@
 .review {
    padding: 5rem 4% 5rem 11%;
+   background: var(--bg);
 }
 
 .slide {
@@ -31,13 +32,13 @@
    object-fit: cover;
 }
 .slide .user h3 {
-   color: var(--black);
+   color: var(--white);
    font-size: 2rem;
    padding-bottom: 0.2rem;
 }
 .slide .user .user_info .review_star {
    font-size: 1.5rem;
-   color: var(--green);
+   color: var(--orange);
 }
 .slide p {
    font-size: 1.5rem;

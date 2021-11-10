@@ -16,6 +16,13 @@ const HomeProduct = ({ watch }) => {
                style={{ marginTop: "-5rem" }}
                className="btn_book border-0 mx-3"
             >
+               {" "}
+               <FaIcons.FaEye
+                  style={{
+                     marginBottom: "0.5rem",
+                     marginRight: "0.5rem",
+                  }}
+               />
                Quick View
             </button>
             <div className="content">
@@ -45,7 +52,13 @@ const HomeProduct = ({ watch }) => {
                   ${offerPrice} <span>${price}</span>
                </div>
                <button style={{ width: "100%" }} className="btn_book">
-                  Book Now
+                  <MdIcons.MdAddShoppingCart
+                     style={{
+                        marginBottom: "0.5rem",
+                        marginRight: "0.5rem",
+                     }}
+                  />
+                  Add To Cart
                </button>
             </div>
          </div>
