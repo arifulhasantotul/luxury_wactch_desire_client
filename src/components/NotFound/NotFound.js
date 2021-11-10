@@ -1,9 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import notfound from "./404.png";
 
 const NotFound = () => {
    return (
       <div>
-         <h2>404 Not Found</h2>
+         <img style={{ width: "100%" }} src={notfound} alt="" />
+         <Link to="/">
+            <button>Go Back</button>
+         </Link>
       </div>
    );
 };

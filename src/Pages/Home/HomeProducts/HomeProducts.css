@@ -1,8 +1,8 @@
-.package_wrapper {
+.section_wrapper {
    padding: 5rem 4% 5rem 12%;
    background: var(--bg);
 }
-.package_wrapper .box {
+.section_wrapper .box {
    display: flex;
    flex-direction: column;
    height: 100%;
@@ -11,19 +11,19 @@
    overflow: hidden;
    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
 }
-.package_wrapper .box:hover {
+.section_wrapper .box:hover {
    box-shadow: var(--box_shadow);
 }
 
-.package_wrapper .box img {
+.section_wrapper .box img {
    height: 40rem;
    width: 100%;
    object-fit: cover;
 }
-.package_wrapper .box .content {
+.section_wrapper .box .content {
    padding: 2rem;
 }
-.package_wrapper .box .content h3 {
+.section_wrapper .box .content h3 {
    display: flex;
    justify-content: flex-start;
    align-items: center;
@@ -31,31 +31,31 @@
    font-weight: 600;
    color: var(--fade_white);
 }
-.package_wrapper .box .content p {
+.section_wrapper .box .content p {
    font-size: 1.7rem;
    color: #666;
    padding: 1rem 0;
 }
-.package_wrapper .box .content .location_icon {
+.section_wrapper .box .content .location_icon {
    font-size: 2rem;
    color: var(--orange);
 }
-.package_wrapper .box .content .box_star {
+.section_wrapper .box .content .box_star {
    font-size: 1.7rem;
    color: var(--orange);
 }
-.package_wrapper .box .content .price {
+.section_wrapper .box .content .price {
    font-size: 2.5rem;
    color: var(--white);
    padding-top: 1rem;
 }
-.package_wrapper .box .content .price span {
+.section_wrapper .box .content .price span {
    color: var(--light_color);
    font-size: 1.5rem;
    text-decoration: line-through;
 }
 @media (max-width: 450px) {
-   .package_wrapper .box {
+   .section_wrapper .box {
       padding-left: 7%;
    }
 }

@@ -1,0 +1,90 @@
+.watch_wrapper {
+   padding: 5rem 4% 5rem 12%;
+   background: var(--bg);
+}
+.watch_wrapper .box {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+   gap: 1.5rem;
+   height: 100%;
+   border-radius: 0.5rem;
+   overflow: hidden;
+}
+.watch_wrapper .box .figure {
+   display: flex;
+   flex-direction: column;
+   position: relative;
+}
+.watch_wrapper .box .figure button {
+   position: absolute;
+   bottom: 1.3rem;
+   right: 0.1rem;
+   width: 95%;
+   opacity: 0;
+}
+.watch_wrapper .box:hover .figure button {
+   opacity: 1;
+}
+.watch_wrapper .box .figure img {
+   height: 35rem;
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+}
+.watch_wrapper .box .content {
+   padding: 2rem;
+}
+.watch_wrapper .box .content h3 {
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   font-size: 2.4rem;
+   font-weight: 600;
+   color: var(--fade_white);
+}
+.watch_wrapper .box .content p {
+   font-size: 1.7rem;
+   color: #666;
+   padding: 1rem 0;
+}
+.watch_wrapper .box .content .location_icon {
+   font-size: 2rem;
+   color: var(--orange);
+}
+.watch_wrapper .box .content .box_star {
+   font-size: 1.7rem;
+   color: var(--orange);
+}
+.watch_wrapper .box .content .price {
+   font-size: 2.5rem;
+   color: var(--white);
+   padding-top: 1rem;
+}
+.watch_wrapper .box .content .price span {
+   color: var(--light_color);
+   font-size: 1.5rem;
+   text-decoration: line-through;
+}
+@media (max-width: 1024px) {
+   html {
+      font-size: 59%;
+   }
+}
+@media (max-width: 768px) {
+   html {
+      font-size: 55%;
+   }
+   .watch_wrapper .box .figure img {
+      height: 100%;
+   }
+}
+@media (max-width: 450px) {
+   html {
+      font-size: 48%;
+   }
+   .watch_wrapper .box {
+      padding-left: 7%;
+      display: flex;
+      flex-direction: column;
+   }
+}

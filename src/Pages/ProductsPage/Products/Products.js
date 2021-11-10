@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import SkeletonPackages from "../../../components/Skeleton/SkeletonPackages";
-import HomeProduct from "../HomeProduct/HomeProduct";
-import "./HomeProducts.css";
+import Product from "../Product/Product";
+import "./Products.css";
 
-const HomeProducts = () => {
+const Products = () => {
    const [products, setProducts] = useState([]);
    const [productsLoading, setProductsLoading] = useState(true);
-   const size = 6;
    useEffect(() => {
       setProductsLoading(true);
-      const url = `http://localhost:8080/products?size=${size}`;
+      const url = `http://localhost:8080/products`;
       fetch(url)
          .then((res) => res.json())
          .then((data) => {
@@ -19,7 +18,7 @@ const HomeProducts = () => {
          .finally(() => setProductsLoading(false));
    }, []);
    return (
-      <section className="container-fluid section_wrapper">
+      <section className="container-fluid watch_wrapper">
          <h1 className="heading">
             <span>w</span>
             <span>a</span>
@@ -29,14 +28,14 @@ const HomeProducts = () => {
             <span>e</span>
             <span>s</span>
          </h1>
-         <article className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+         <article className="row row-cols-1 g-4 justify-content-center">
             {!productsLoading &&
                products.map((pd) => (
-                  <HomeProduct
+                  <Product
                      key={pd._id}
-                     className="home_product"
+                     className="product_item"
                      watch={pd}
-                  ></HomeProduct>
+                  ></Product>
                ))}
             {productsLoading &&
                [1, 2, 3, 4, 5, 6].map((n) => (
@@ -47,4 +46,4 @@ const HomeProducts = () => {
    );
 };
 
-export default HomeProducts;
+export default Products;
