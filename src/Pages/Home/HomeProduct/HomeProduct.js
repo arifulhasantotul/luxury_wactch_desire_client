@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import * as MdIcons from "react-icons/md";
 import Rating from "react-rating";
+import DetailsModal from "../../../components/DetailsModal/DetailsModal";
 
 const HomeProduct = ({ watch }) => {
+   const [modalShow, setModalShow] = useState(false);
    const { name, details, offerPrice, price, rating, img } = watch;
    return (
       <div className="col">
          <div className="box">
             <img className="img-fluid" src={img} alt="..." />
             <button
+               onClick={() => setModalShow(true)}
                style={{ marginTop: "-5rem" }}
                className="btn_book border-0 mx-3"
             >
@@ -19,7 +22,12 @@ const HomeProduct = ({ watch }) => {
                <h3>
                   {" "}
                   <span className="location_icon">
-                     <MdIcons.MdLocationPin />
+                     <MdIcons.MdWatch
+                        style={{
+                           marginBottom: "0.5rem",
+                           marginRight: "0.5rem",
+                        }}
+                     />
                   </span>{" "}
                   <span>{name}</span>
                </h3>
@@ -41,6 +49,12 @@ const HomeProduct = ({ watch }) => {
                </button>
             </div>
          </div>
+         {/* modal  */}
+         <DetailsModal
+            show={modalShow}
+            watch={watch}
+            onHide={() => setModalShow(false)}
+         />
       </div>
    );
 };

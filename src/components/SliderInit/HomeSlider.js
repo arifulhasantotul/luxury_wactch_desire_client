@@ -24,6 +24,7 @@ const HomeSlider = () => {
             }}
             keyboard={{ enabled: true }}
             slidesPerView={1}
+            centeredSlides={true}
             spaceBetween={30}
             pagination={{
                dynamicBullets: true,

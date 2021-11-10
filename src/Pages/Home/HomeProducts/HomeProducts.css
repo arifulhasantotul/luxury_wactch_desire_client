@@ -11,6 +11,9 @@
    overflow: hidden;
    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
 }
+.package_wrapper .box:hover {
+   box-shadow: var(--box_shadow);
+}
 
 .package_wrapper .box img {
    height: 40rem;
