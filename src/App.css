@@ -55,11 +55,13 @@ li {
    left: 78px;
    width: calc(100% - 78px);
 }
-.heading {
+.heading,
+.dash_heading {
    text-align: center;
    padding: 2.5rem 0;
 }
-.heading span {
+.heading span,
+.dash_heading span {
    font-size: 3.5rem;
    background: var(--bg_dark);
    color: var(--light_color);
@@ -70,7 +72,8 @@ li {
    font-weight: 700;
    margin: 0.5rem;
 }
-.heading span.space {
+.heading span.space,
+.dash_heading span.space {
    background: none;
 }
 .btn_book {
@@ -139,6 +142,17 @@ li {
    }
    .heading {
       padding-left: 3rem;
+   }
+   .heading span {
+      font-size: 3rem;
+      padding: 0.2rem 0.6rem;
+   }
+   .dash_heading span {
+      font-size: 3rem;
+      padding: 0.2rem 0.5rem;
+      display: inline-block;
+      text-transform: uppercase;
+      margin: 0.5rem;
    }
    .home_slider .slide_item {
       padding-left: 12%;

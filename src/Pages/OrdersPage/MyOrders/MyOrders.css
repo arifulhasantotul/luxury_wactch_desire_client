@@ -1,3 +1,128 @@
+.dashPage_wrapper {
+   display: flex;
+   padding: 0rem 2% 1rem 4%;
+   background: var(--bg);
+   color: var(--light_color);
+   position: sticky;
+   top: 10rem;
+}
+
+.order_wrapper .box {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+   gap: 1.5rem;
+   height: 100%;
+   border-radius: 0.5rem;
+   overflow: hidden;
+}
+.order_wrapper .box .figure {
+   display: flex;
+   flex-direction: column;
+   position: relative;
+}
+.order_wrapper .box .figure button {
+   position: absolute;
+   bottom: 1.3rem;
+   right: 0.1rem;
+   width: 95%;
+   opacity: 0;
+}
+.order_wrapper .box:hover .figure button {
+   opacity: 1;
+}
+.order_wrapper .box .figure img {
+   height: 35rem;
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+}
+.order_wrapper .box .content {
+   padding: 2rem;
+}
+.order_wrapper .box .content h5 {
+   font-size: 1.4rem;
+   font-weight: 600;
+   color: var(--fade_white);
+}
+.order_wrapper .box .content h3 {
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   font-size: 2.4rem;
+   font-weight: 600;
+   color: var(--fade_white);
+}
+.order_wrapper .box .content p {
+   font-size: 1.7rem;
+   color: #666;
+   padding: 1rem 0;
+}
+.order_wrapper .box .content .location_icon {
+   font-size: 2rem;
+   color: var(--orange);
+}
+.order_wrapper .box .content .box_star {
+   font-size: 1.7rem;
+   color: var(--orange);
+}
+.order_wrapper .box .content .price {
+   font-size: 2.5rem;
+   color: var(--white);
+   padding-top: 1rem;
+}
+.order_wrapper .box .content .price span {
+   color: var(--light_color);
+   font-size: 1.5rem;
+   text-decoration: line-through;
+}
+.order_wrapper .box .content .shipped,
+.order_wrapper .box .content .pending {
+   font-size: 1rem;
+   letter-spacing: 0.2rem;
+   color: rgb(241, 20, 20);
+   background: rgba(221, 162, 162, 0.164);
+
+   width: 7rem;
+   padding-left: 1rem;
+   border-radius: 1rem;
+   font-weight: 600;
+}
+.order_wrapper .box .content .shipped {
+   color: rgb(47, 209, 47);
+   background: rgba(63, 231, 63, 0.068);
+}
+@media (max-width: 1024px) {
+   html {
+      font-size: 59%;
+   }
+   .dashPage_wrapper {
+      padding: 0rem 2% 1rem 6%;
+   }
+}
+@media (max-width: 768px) {
+   html {
+      font-size: 55%;
+   }
+   .dashPage_wrapper {
+      padding: 0rem 2% 1rem 8%;
+   }
+   .order_wrapper .box .figure img {
+      height: 100%;
+   }
+}
+@media (max-width: 450px) {
+   html {
+      font-size: 48%;
+   }
+   .dashPage_wrapper {
+      padding: 0rem 2% 1rem 11%;
+   }
+   .order_wrapper .box {
+      display: flex;
+      flex-direction: column;
+   }
+}
+
 .no_order {
    text-align: center;
    font-size: 2.4rem;

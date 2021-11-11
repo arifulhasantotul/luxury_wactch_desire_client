@@ -1,6 +1,6 @@
 import React from "react";
 import * as BiIcons from "react-icons/bi";
-import * as FaIcons from "react-icons/fa";
+// import * as FaIcons from "react-icons/fa";
 
 export const SidebarData = [
    {
@@ -14,7 +14,7 @@ export const SidebarData = [
       id: 2,
       title: "Dashboard",
       tClass: "nav_link",
-      path: "/dashboard",
+      path: "/dashboard/myOrders",
       icon: <BiIcons.BiCollection />,
       iconClosed: <BiIcons.BiChevronDown />,
       iconOpened: <BiIcons.BiChevronUp />,
@@ -28,15 +28,15 @@ export const SidebarData = [
       iconClosed: <BiIcons.BiChevronDown />,
       iconOpened: <BiIcons.BiChevronUp />,
    },
-   {
-      id: 4,
-      title: "My Orders",
-      tClass: "nav_link",
-      path: "/myOrders",
-      icon: <FaIcons.FaOpencart />,
-      iconClosed: <BiIcons.BiChevronDown />,
-      iconOpened: <BiIcons.BiChevronUp />,
-   },
+   // {
+   //    id: 4,
+   //    title: "My Orders",
+   //    tClass: "nav_link",
+   //    path: "/dashboard/myOrders",
+   //    icon: <FaIcons.FaOpencart />,
+   //    iconClosed: <BiIcons.BiChevronDown />,
+   //    iconOpened: <BiIcons.BiChevronUp />,
+   // },
    {
       id: 5,
       title: "Analytics",

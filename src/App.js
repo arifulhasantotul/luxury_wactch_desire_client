@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar/Navbar";
 import NotFound from "./components/NotFound/NotFound";
 import AuthProvider from "./context/AuthProvider";
 import AddProduct from "./Pages/DashboardPage/AddProduct/AddProduct";
+import DashHome from "./Pages/DashboardPage/DashHome/DashHome";
 import Home from "./Pages/Home/Home";
 import MyOrders from "./Pages/OrdersPage/MyOrders/MyOrders";
 import Shipping from "./Pages/OrdersPage/Shipping/Shipping";
@@ -30,13 +31,16 @@ function App() {
                   <Route path="/home">
                      <Home />
                   </Route>
+                  <Route exact path="/dashboard">
+                     <DashHome />
+                  </Route>
                   <Route path="/products">
                      <Products />
                   </Route>
                   <Route path="/login">
                      <Login />
                   </Route>
-                  <PrivateRoute path="/myOrders">
+                  <PrivateRoute path="/dashboard/myOrders">
                      <MyOrders />
                   </PrivateRoute>
                   <PrivateRoute path="/addReview">

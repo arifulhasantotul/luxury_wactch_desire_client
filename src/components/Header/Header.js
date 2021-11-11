@@ -9,7 +9,7 @@ import "./Header.css";
 const Header = () => {
    const history = useHistory();
    const goToOrders = () => {
-      history.push("/myOrders");
+      history.push("/dashboard/myOrders");
    };
    return (
       <div className="header">
