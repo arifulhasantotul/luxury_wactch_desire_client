@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar/Navbar";
 import NotFound from "./components/NotFound/NotFound";
 import AuthProvider from "./context/AuthProvider";
 import AddProduct from "./Pages/DashboardPage/AddProduct/AddProduct";
+import DashPay from "./Pages/DashboardPage/DashPay/DashPay";
 import Home from "./Pages/Home/Home";
 import MyOrders from "./Pages/OrdersPage/MyOrders/MyOrders";
 import Shipping from "./Pages/OrdersPage/Shipping/Shipping";
@@ -36,7 +37,13 @@ function App() {
                   <Route path="/login">
                      <Login />
                   </Route>
-                  <PrivateRoute path="/dashboard/myOrders">
+                  <PrivateRoute exact path="/dashboard/myOrders">
+                     <MyOrders />
+                  </PrivateRoute>
+                  <PrivateRoute exact path="/dashboard/pay">
+                     <DashPay />
+                  </PrivateRoute>
+                  <PrivateRoute exact path="/dashboard/review">
                      <MyOrders />
                   </PrivateRoute>
                   <PrivateRoute path="/addReview">

@@ -29,7 +29,7 @@ a.sidebarListItem {
    text-decoration: none;
    color: var(--gray);
 }
-a.active,
+a.selected,
 a.sidebarListItem:hover {
    background: rgb(240, 240, 255);
    color: var(--bg_dark);
