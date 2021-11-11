@@ -1,42 +1,43 @@
 import React, { useState } from "react";
 import { Spinner } from "react-bootstrap";
 import useAuth from "../../../hooks/useAuth";
-import "../Login/Login.css";
+import "../../../Pages/User/Login/Login.css";
 
-const AddReview = () => {
+const AddProduct = () => {
    const { user } = useAuth();
    const [posting, setPosting] = useState(false);
    const initialInfo = {
-      name: user.displayName,
-      email: user.email,
+      name: "",
+      details: "",
+      offerPrice: "",
+      price: "",
       rating: "",
-      avatar: user.photoURL || "",
-      comment: "",
+      img: "",
    };
-   const [reviewInfo, setReviewInfo] = useState(initialInfo);
+   const [productInfo, setProductInfo] = useState(initialInfo);
 
    const handleOnBlur = (e) => {
       const field = e.target.name;
       const value = e.target.value;
-      const newInfo = { ...reviewInfo };
+      const newInfo = { ...productInfo };
       newInfo[field] = value;
       console.log(newInfo);
-      setReviewInfo(newInfo);
+      setProductInfo(newInfo);
    };
 
-   const handleReviewSubmit = (e) => {
+   const handleProductSubmit = (e) => {
       setPosting(true);
       e.preventDefault();
-      const newReview = {
-         ...reviewInfo,
+      const newProduct = {
+         ...productInfo,
       };
-      const url = `http://localhost:8080/reviews`;
+      const url = `http://localhost:8080/products`;
       fetch(url, {
          method: "POST",
          headers: {
             "content-type": "application/json",
          },
-         body: JSON.stringify(newReview),
+         body: JSON.stringify(newProduct),
       })
          .then((res) => res.json())
          .then((data) => {
@@ -58,35 +59,32 @@ const AddReview = () => {
             <span>d</span>
             <span>d</span>
             <span className="space"></span>
+            <span>p</span>
             <span>r</span>
-            <span>e</span>
-            <span>v</span>
-            <span>i</span>
-            <span>e</span>
-            <span>w</span>
+            <span>o</span>
+            <span>d</span>
+            <span>c</span>
+            <span>t</span>
          </h1>
          {/* {authError && <div style={{ color: "red" }}></div>} */}
 
-         <form className="form_login" onSubmit={handleReviewSubmit}>
+         <form className="form_login" onSubmit={handleProductSubmit}>
             <div className="input_field">
-               <span>Your Name</span>
+               <span>Product Name</span>
+               <input onBlur={handleOnBlur} type="text" name="name" required />
+            </div>
+            <div className="input_field">
+               <span>Discount Price</span>
                <input
                   onBlur={handleOnBlur}
                   type="text"
-                  defaultValue={user.displayName}
-                  name="name"
-                  readOnly
+                  name="offerPrice"
+                  required
                />
             </div>
             <div className="input_field">
-               <span>Your Email</span>
-               <input
-                  onBlur={handleOnBlur}
-                  type="email"
-                  name="email"
-                  defaultValue={user.email}
-                  readOnly
-               />
+               <span>Product Price</span>
+               <input onBlur={handleOnBlur} type="text" name="price" required />
             </div>
             <div className="input_field">
                <span>Rating</span>
@@ -100,27 +98,21 @@ const AddReview = () => {
             </div>
             <div className="input_field">
                <span>Image Link</span>
-               <input
-                  onBlur={handleOnBlur}
-                  type="text"
-                  name="avatar"
-                  defaultValue={user.photoURL ? user.photoURL : ""}
-                  required
-               />
+               <input onBlur={handleOnBlur} type="text" name="img" required />
             </div>
             <div className="input_field">
-               <span>Comment</span>
+               <span>Details</span>
                <textarea
                   type="text"
-                  name="comment"
+                  name="details"
                   onBlur={handleOnBlur}
-                  placeholder="Please leave a comment.(Maximum 200 words)"
+                  placeholder="Please leave details.(Maximum 200 words)"
                   required
                />
             </div>
 
             {!posting && (
-               <input type="submit" className="btn_book" value="Add Review" />
+               <input type="submit" className="btn_book" value="Add Product" />
             )}
 
             {posting && (
@@ -135,4 +127,4 @@ const AddReview = () => {
    );
 };
 
-export default AddReview;
+export default AddProduct;

@@ -6,6 +6,7 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import NotFound from "./components/NotFound/NotFound";
 import AuthProvider from "./context/AuthProvider";
+import AddProduct from "./Pages/DashboardPage/AddProduct/AddProduct";
 import Home from "./Pages/Home/Home";
 import MyOrders from "./Pages/OrdersPage/MyOrders/MyOrders";
 import Products from "./Pages/ProductsPage/Products/Products";
@@ -38,6 +39,9 @@ function App() {
                   </Route>
                   <Route path="/addReview">
                      <AddReview />
+                  </Route>
+                  <Route path="/addProduct">
+                     <AddProduct />
                   </Route>
                   <Route path="/register">
                      <Register />
