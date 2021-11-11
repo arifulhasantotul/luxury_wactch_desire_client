@@ -1,22 +1,50 @@
 import React, { useState } from "react";
 import { Spinner } from "react-bootstrap";
-import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import "../Login/Login.css";
 
 const AddReview = () => {
    const { user } = useAuth();
-   const [loadPost, setLoadPost] = useState(false);
-
-   const {
-      register,
-      handleSubmit,
-      formState: { errors },
-   } = useForm();
-
-   const onSubmit = (data) => {
-      console.log(data);
+   const initialInfo = {
+      name: user.displayName,
+      email: user.email,
+      rating: "",
+      avatar: user.photoURL || "",
+      comment: "",
    };
+   const [reviewInfo, setReviewInfo] = useState(initialInfo);
+
+   const handleOnBlur = (e) => {
+      const field = e.target.name;
+      const value = e.target.value;
+      const newInfo = { ...reviewInfo };
+      newInfo[field] = value;
+      console.log(newInfo);
+      setReviewInfo(newInfo);
+   };
+
+   const handleReviewSubmit = (e) => {
+      e.preventDefault();
+      const newReview = {
+         ...reviewInfo,
+      };
+      const url = `http://localhost:8080/reviews`;
+      fetch(url, {
+         method: "POST",
+         headers: {
+            "content-type": "application/json",
+         },
+         body: JSON.stringify(newReview),
+      })
+         .then((res) => res.json())
+         .then((data) => {
+            if (data.insertedId) {
+               alert("successfully added review");
+               e.target.reset();
+            }
+         });
+   };
+
    return (
       <div className="container-fluid form_wrapper">
          <h1 className="heading">
@@ -33,73 +61,66 @@ const AddReview = () => {
          </h1>
          {/* {authError && <div style={{ color: "red" }}></div>} */}
 
-         <form className="form_login" onSubmit={handleSubmit(onSubmit)}>
+         <form className="form_login" onSubmit={handleReviewSubmit}>
             <div className="input_field">
                <span>Your Name</span>
                <input
+                  onBlur={handleOnBlur}
                   type="text"
                   defaultValue={user.displayName}
-                  {...register("displayName", { required: true })}
+                  name="name"
+                  readOnly
                />
-               {errors.displayName && (
-                  <span className="error">Name is required</span>
-               )}
             </div>
             <div className="input_field">
                <span>Your Email</span>
                <input
+                  onBlur={handleOnBlur}
                   type="email"
+                  name="email"
                   defaultValue={user.email}
-                  {...register("email", { required: true })}
+                  readOnly
                />
-               {errors.email && (
-                  <span className="error">Email is required</span>
-               )}
             </div>
-
             <div className="input_field">
                <span>Rating</span>
-               <input type="text" {...register("rating", { required: true })} />
-
-               {errors.rating && (
-                  <span className="error">Give rating between 1-5</span>
-               )}
+               <input
+                  onBlur={handleOnBlur}
+                  type="text"
+                  name="rating"
+                  placeholder="Give number between 1-5"
+                  required
+               />
             </div>
-
             <div className="input_field">
                <span>Image Link</span>
                <input
+                  onBlur={handleOnBlur}
                   type="text"
-                  {...register("avatar", { required: false })}
+                  name="avatar"
+                  defaultValue={user.photoURL ? user.photoURL : ""}
+                  required
                />
-
-               {errors.avatar && (
-                  <span className="error">Give a image link please</span>
-               )}
             </div>
-
             <div className="input_field">
                <span>Comment</span>
-               <input
+               <textarea
                   type="text"
-                  {...register("comment", { required: true })}
+                  name="comment"
+                  onBlur={handleOnBlur}
+                  placeholder="Please leave a comment.(Maximum 200 words)"
+                  required
                />
-
-               {errors.comment && (
-                  <span className="error">
-                     Please give a comment not more than 200 words
-                  </span>
-               )}
             </div>
 
             <input type="submit" className="btn_book" value="Add Review" />
-            {loadPost && (
+            {
                <Spinner
                   animation="border"
                   variant="secondary"
                   style={{ width: "4rem", height: "4rem", fontSize: "2rem" }}
                />
-            )}
+            }
          </form>
       </div>
    );

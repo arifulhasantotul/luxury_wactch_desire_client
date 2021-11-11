@@ -1,0 +1,46 @@
+.service {
+   text-align: center;
+   padding: 2rem 0;
+   border-radius: 0.5rem;
+   box-shadow: var(--box_shadow);
+}
+.service:hover {
+   background: var(--bg_dark);
+}
+.service .service_icon {
+   font-size: 5rem;
+   color: var(--light_color);
+   border: 0.2rem solid var(--light_color);
+   width: 8rem;
+   height: 8rem;
+   display: flex;
+   margin: 0rem auto;
+   border-radius: 50%;
+   position: relative;
+}
+.service .service_icon:hover {
+   color: var(--orange);
+   border: 0.2rem solid var(--orange);
+}
+
+.service .service_icon span {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+.service .service_details h3 {
+   padding-top: 2rem;
+   color: var(--white);
+   font-size: 2rem;
+   font-weight: 800;
+}
+.service .service_details p {
+   color: var(--light_color);
+   font-size: 1.4rem;
+   line-height: 1.5;
+   padding: 0.5rem 0;
+}
+.service .service_details:hover p {
+   color: var(--orange);
+}

@@ -27,7 +27,7 @@
    box-sizing: border-box;
    font-family: "Nunito", sans-serif;
    scroll-behavior: smooth;
-   transition: all 0.2s linear;
+   transition: all 0.1s linear;
 }
 *::selection {
    background: var(--orange);

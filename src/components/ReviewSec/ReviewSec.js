@@ -107,6 +107,7 @@ const ReviewSec = () => {
                            </div>
                         </div>
                         <p>{item.comment.slice(0, 200)}</p>
+                        <p className="text-center text-white">{item.email}</p>
                      </SwiperSlide>
                   ))}
                {reviewsLoading &&
