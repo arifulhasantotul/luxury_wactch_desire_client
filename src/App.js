@@ -14,6 +14,7 @@ import Products from "./Pages/ProductsPage/Products/Products";
 import AddReview from "./Pages/User/AddReview/AddReview";
 import Login from "./Pages/User/Login/Login";
 import Register from "./Pages/User/Register/Register";
+import PrivateRoute from "./Shared/PrivateRoute/PrivateRoute";
 
 function App() {
    return (
@@ -35,21 +36,21 @@ function App() {
                   <Route path="/login">
                      <Login />
                   </Route>
-                  <Route path="/myOrders">
+                  <PrivateRoute path="/myOrders">
                      <MyOrders />
-                  </Route>
-                  <Route path="/addReview">
+                  </PrivateRoute>
+                  <PrivateRoute path="/addReview">
                      <AddReview />
-                  </Route>
-                  <Route path="/addProduct">
+                  </PrivateRoute>
+                  <PrivateRoute path="/addProduct">
                      <AddProduct />
-                  </Route>
+                  </PrivateRoute>
                   <Route path="/register">
                      <Register />
                   </Route>
-                  <Route path="/shipping">
+                  <PrivateRoute path="/shipping">
                      <Shipping />
-                  </Route>
+                  </PrivateRoute>
                   <Route path="*">
                      <NotFound />
                   </Route>

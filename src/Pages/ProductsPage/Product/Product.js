@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import * as MdIcons from "react-icons/md";
 import Rating from "react-rating";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import DetailsModal from "../../../components/DetailsModal/DetailsModal";
 import useAuth from "../../../hooks/useAuth";
 
 const Product = ({ watch }) => {
    const { user } = useAuth();
-   // const history = useHistory();
+   const history = useHistory();
    const [modalShow, setModalShow] = useState(false);
    console.log(watch);
    const { name, details, offerPrice, price, rating, img } = watch;
@@ -44,11 +44,11 @@ const Product = ({ watch }) => {
                alert(
                   "Successfully added to order list but you have to login to see orders list"
                );
-               // history.push(`orders/myOrders/${_id}`);
+               history.push(`/myOrders`);
             }
             if (data.insertedId && user.email) {
                alert("Successfully added to order list");
-               // history.push(`orders/myOrders/${_id}`);
+               history.push(`/myOrders`);
             }
          })
          .catch((error) => {

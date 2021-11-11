@@ -22,7 +22,7 @@ const Register = () => {
       formState: { errors },
    } = useForm();
 
-   const redirect_uri = location?.state?.form || "/";
+   const redirect_uri = location?.state?.from || "/";
 
    const handleGoogleSignIn = () => {
       signInUsingGoogle(history, redirect_uri);
