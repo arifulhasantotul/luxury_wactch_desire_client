@@ -35,7 +35,7 @@
 }
 .form_wrapper .form_login .input_field input,
 .form_wrapper .form_login .input_field textarea {
-   background: var(--bg);
+   background: var(--bg) !important;
    border: none;
    border-radius: 0.5rem;
    padding: 1rem;

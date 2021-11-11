@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import * as FaIcons from "react-icons/fa";
 import Rating from "react-rating";
+import { useHistory } from "react-router-dom";
 import SwiperCore, {
    Autoplay,
    EffectCoverflow,
@@ -16,9 +17,13 @@ import "./ReviewSec.css";
 SwiperCore.use([Virtual, EffectCoverflow, Pagination, Autoplay, Keyboard]);
 
 const ReviewSec = () => {
+   const history = useHistory();
    const [reviews, setReviews] = useState([]);
    const [reviewsLoading, setReviewsLoading] = useState(true);
 
+   const goToReview = () => {
+      history.push("/addReview");
+   };
    useEffect(() => {
       setReviewsLoading(true);
       const url = `http://localhost:8080/reviews`;
@@ -110,6 +115,12 @@ const ReviewSec = () => {
                   ))}
             </Swiper>
          )}
+
+         <div style={{ textAlign: "center" }}>
+            <button className="btn_book" onClick={goToReview}>
+               Please Give Feedback
+            </button>
+         </div>
       </Container>
    );
 };
