@@ -42,7 +42,7 @@ const PersonalOrder = ({ order, orders, setOrders }) => {
    };
 
    return (
-      <div className="col-12 col-md-8 col-lg-7 col-xl-6 mx-auto">
+      <div className="col-12 col-lg-10 col-xl-6 mx-auto">
          <div className="box">
             <div className="figure">
                <img src={img} alt="..." />
