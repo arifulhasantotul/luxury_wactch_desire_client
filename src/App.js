@@ -8,6 +8,7 @@ import NotFound from "./components/NotFound/NotFound";
 import AuthProvider from "./context/AuthProvider";
 import AddProduct from "./Pages/DashboardPage/AddProduct/AddProduct";
 import DashPay from "./Pages/DashboardPage/DashPay/DashPay";
+import DashReview from "./Pages/DashboardPage/DashReview/DashReview";
 import Home from "./Pages/Home/Home";
 import MyOrders from "./Pages/OrdersPage/MyOrders/MyOrders";
 import Shipping from "./Pages/OrdersPage/Shipping/Shipping";
@@ -44,7 +45,7 @@ function App() {
                      <DashPay />
                   </PrivateRoute>
                   <PrivateRoute exact path="/dashboard/review">
-                     <MyOrders />
+                     <DashReview />
                   </PrivateRoute>
                   <PrivateRoute path="/addReview">
                      <AddReview />

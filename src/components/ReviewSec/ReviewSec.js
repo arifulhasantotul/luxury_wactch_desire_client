@@ -39,17 +39,12 @@ const ReviewSec = () => {
    return (
       <Container fluid className="review">
          <h1 className="heading">
-            <span>t</span>
+            <span>r</span>
             <span>e</span>
-            <span>s</span>
-            <span>t</span>
+            <span>v</span>
             <span>i</span>
-            <span>m</span>
-            <span>o</span>
-            <span>n</span>
-            <span>i</span>
-            <span>a</span>
-            <span>l</span>
+            <span>e</span>
+            <span>w</span>
          </h1>
          {reviews.length > 0 && (
             <Swiper

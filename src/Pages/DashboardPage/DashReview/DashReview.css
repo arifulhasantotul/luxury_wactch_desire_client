@@ -1,0 +1,115 @@
+.dash_review_container {
+   display: flex;
+   padding: 0rem 2% 1rem 4%;
+   background: var(--bg);
+   color: var(--light_color);
+   position: sticky;
+   top: 10rem;
+}
+/* .review_wrapper{} */
+.review_wrapper .slide {
+   width: 100%;
+   padding: 2rem;
+   box-shadow: var(--box_shadow);
+   border: 0.1rem solid rgba(0, 0, 0, 0.2);
+   border-radius: 0.5rem;
+   position: relative;
+   margin-bottom: 4rem;
+   margin-left: 0.2rem;
+   background: var(--bg_dark);
+}
+
+.review_wrapper .slide .dash_review_quote {
+   position: absolute;
+   top: 1.1rem;
+   right: 2rem;
+   font-size: 6rem;
+   color: #ccc;
+}
+.review_wrapper .slide .dash_user {
+   display: flex;
+   gap: 1.5rem;
+   align-items: center;
+   padding-bottom: 1.5rem;
+}
+.review_wrapper .slide .dash_user img {
+   height: 7rem;
+   width: 7rem;
+   border-radius: 50%;
+   object-fit: cover;
+}
+.review_wrapper .slide .dash_user h3 {
+   color: var(--white);
+   font-size: 2rem;
+   padding-bottom: 0.2rem;
+}
+.review_wrapper .slide .dash_user .dash_user_info .dash_review_star {
+   font-size: 1.5rem;
+   color: var(--orange);
+}
+
+.review_wrapper .slide p {
+   font-size: 1.5rem;
+   line-height: 1.8rem;
+   color: var(--light_color);
+}
+@media (max-width: 1024px) {
+   html {
+      font-size: 59%;
+   }
+   .dash_review_container {
+      padding: 0rem 2% 1rem 6%;
+   }
+   .review_wrapper {
+      max-width: 800px;
+      /* padding: 2rem 0; */
+   }
+   .review_wrapper .slide {
+      width: 20rem;
+      padding: 2rem;
+      margin-left: 0.2rem;
+   }
+}
+@media (max-width: 768px) {
+   html {
+      font-size: 55%;
+   }
+   .dash_review_container {
+      padding: 0rem 2% 1rem 7%;
+   }
+   .review_wrapper {
+      max-width: 600px;
+   }
+   .review_wrapper .slide {
+      width: 20rem;
+      padding: 2rem;
+      margin-left: 0.3rem;
+   }
+}
+@media (max-width: 450px) {
+   html {
+      font-size: 48%;
+   }
+   .dash_review_container {
+      max-width: 400px;
+      padding: 0rem 2% 1rem 9%;
+   }
+   .review_wrapper {
+      max-width: 260px;
+      padding: 2rem 0;
+   }
+   .review_wrapper .slide {
+      width: 10rem;
+      margin-left: -0.4rem;
+   }
+   .review_wrapper .slide .dash_review_quote {
+      font-size: 4rem;
+   }
+   .review_wrapper .slide .dash_user {
+      flex-direction: column;
+      justify-content: start;
+   }
+   .review_wrapper .slide p {
+      text-align: center;
+   }
+}
