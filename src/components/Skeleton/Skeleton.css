@@ -1,5 +1,5 @@
 .skeleton {
-   background: #ddd;
+   background: #777;
    margin: 10px 0;
    border-radius: 4px;
 }
@@ -41,13 +41,13 @@
 }
 
 /* themes  */
-.skeleton_wrapper.light {
+/* .skeleton_wrapper.light {
    background: #f2f2f2;
-}
-.skeleton_wrapper.dark {
+} */
+.skeleton_wrapper.light {
    background: #444;
 }
-.skeleton_wrapper.dark .skeleton {
+.skeleton_wrapper.light .skeleton {
    background: #777;
 }
 

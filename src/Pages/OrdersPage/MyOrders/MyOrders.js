@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
+import * as MdIcons from "react-icons/md";
+import { useHistory } from "react-router-dom";
 import SkeletonPackages from "../../../components/Skeleton/SkeletonPackages";
 import useAuth from "../../../hooks/useAuth";
 import PersonalOrder from "../PersonalOrder/PersonalOrder";
 import "./MyOrders.css";
 
 const MyOrders = () => {
+   const history = useHistory();
    const { user } = useAuth();
    const [orders, setOrders] = useState([]);
    const [ordersLoading, setOrdersLoading] = useState(true);
+
+   const goToShipping = () => {
+      history.push("/shipping");
+   };
 
    useEffect(() => {
       setOrdersLoading(true);
@@ -15,7 +22,6 @@ const MyOrders = () => {
       fetch(url)
          .then((res) => res.json())
          .then((data) => {
-            console.log(data);
             setOrders(data);
          })
          .catch((error) => {
@@ -38,13 +44,27 @@ const MyOrders = () => {
          <article className="row row-cols-1 g-4 justify-content-center">
             {!ordersLoading &&
                orders.map((order) => (
-                  <PersonalOrder key={order._id} order={order} />
+                  <PersonalOrder
+                     orders={orders}
+                     setOrders={setOrders}
+                     key={order._id}
+                     order={order}
+                  />
                ))}
             {ordersLoading &&
-               [1, 2, 3, 4, 5, 6].map((n) => (
-                  <SkeletonPackages key={n} theme="dark" />
-               ))}
+               [1, 2, 3, 4, 5, 6].map((n) => <SkeletonPackages key={n} />)}
          </article>
+         {!orders.length && (
+            <div className="no_order">Please order something</div>
+         )}
+         {orders.length > 0 && (
+            <div className="text-center pt-5">
+               <button className="btn_book" onClick={goToShipping}>
+                  {" "}
+                  <MdIcons.MdLocalShipping /> Proceed to Shipping
+               </button>
+            </div>
+         )}
       </section>
    );
 };

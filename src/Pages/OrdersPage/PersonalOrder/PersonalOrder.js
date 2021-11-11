@@ -4,9 +4,10 @@ import * as MdIcons from "react-icons/md";
 import Rating from "react-rating";
 import DetailsModal from "../../../components/DetailsModal/DetailsModal";
 
-const PersonalOrder = ({ order }) => {
+const PersonalOrder = ({ order, orders, setOrders }) => {
    const [modalShow, setModalShow] = useState(false);
    const {
+      _id,
       buyer,
       email,
       name,
@@ -17,6 +18,29 @@ const PersonalOrder = ({ order }) => {
       img,
       status,
    } = order;
+
+   const handleOrderDelete = (id) => {
+      const deleteApi = window.confirm("Do you want to delete this?");
+      if (deleteApi) {
+         const url = `http://localhost:8080/orders/${id}`;
+         fetch(url, {
+            method: "DELETE",
+            headers: {
+               "content-type": "application/json",
+               Accept: "application/json",
+            },
+         })
+            .then((res) => res.json())
+            .then((data) => {
+               if (data.deletedCount) {
+                  alert("Deleted Successfully");
+                  const remaining = orders.filter((order) => order._id !== id);
+                  setOrders(remaining);
+               }
+            });
+      }
+   };
+
    return (
       <div className="col-12 col-md-8 col-lg-7 col-xl-6 mx-auto">
          <div className="box">
@@ -68,14 +92,20 @@ const PersonalOrder = ({ order }) => {
                <div className={status === "Pending" ? "pending" : "shipped"}>
                   {status}
                </div>
-               <button style={{ width: "100%" }} className="btn_book">
-                  <MdIcons.MdAddShoppingCart
+               <button
+                  style={{ width: "100%" }}
+                  className="btn_book"
+                  onClick={() => {
+                     handleOrderDelete(_id);
+                  }}
+               >
+                  <MdIcons.MdDelete
                      style={{
                         marginBottom: "0.5rem",
                         marginRight: "0.5rem",
                      }}
                   />
-                  Add To Cart
+                  Delete Order
                </button>
             </div>
          </div>

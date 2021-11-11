@@ -39,9 +39,7 @@ const HomeProducts = () => {
                   ></HomeProduct>
                ))}
             {productsLoading &&
-               [1, 2, 3, 4, 5, 6].map((n) => (
-                  <SkeletonPackages key={n} theme="dark" />
-               ))}
+               [1, 2, 3, 4, 5, 6].map((n) => <SkeletonPackages key={n} />)}
          </article>
       </section>
    );

@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { Spinner } from "react-bootstrap";
-import useAuth from "../../../hooks/useAuth";
 import "../../../Pages/User/Login/Login.css";
 
 const AddProduct = () => {
-   const { user } = useAuth();
    const [posting, setPosting] = useState(false);
    const initialInfo = {
       name: "",

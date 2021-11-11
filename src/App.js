@@ -9,6 +9,7 @@ import AuthProvider from "./context/AuthProvider";
 import AddProduct from "./Pages/DashboardPage/AddProduct/AddProduct";
 import Home from "./Pages/Home/Home";
 import MyOrders from "./Pages/OrdersPage/MyOrders/MyOrders";
+import Shipping from "./Pages/OrdersPage/Shipping/Shipping";
 import Products from "./Pages/ProductsPage/Products/Products";
 import AddReview from "./Pages/User/AddReview/AddReview";
 import Login from "./Pages/User/Login/Login";
@@ -45,6 +46,9 @@ function App() {
                   </Route>
                   <Route path="/register">
                      <Register />
+                  </Route>
+                  <Route path="/shipping">
+                     <Shipping />
                   </Route>
                   <Route path="*">
                      <NotFound />
