@@ -1,6 +1,7 @@
 import {
    createUserWithEmailAndPassword,
    getAuth,
+   getIdToken,
    GoogleAuthProvider,
    onAuthStateChanged,
    signInWithEmailAndPassword,
@@ -18,6 +19,7 @@ const useFirebase = () => {
    const [isLoading, setIsLoading] = useState(true);
    const [authError, setAuthError] = useState("");
    const [admin, setAdmin] = useState(false);
+   const [userAuthToken, setUserAuthToken] = useState("");
 
    const auth = getAuth();
    const googleProvider = new GoogleAuthProvider();
@@ -111,6 +113,11 @@ const useFirebase = () => {
       onAuthStateChanged(auth, (user) => {
          if (user) {
             setUser(user);
+            // getting id token
+            getIdToken(user).then((idToken) => {
+               console.log(idToken);
+               setUserAuthToken(idToken);
+            });
          } else {
             setUser({});
          }
@@ -134,6 +141,7 @@ const useFirebase = () => {
    return {
       user,
       admin,
+      userAuthToken,
       isLoading,
       setIsLoading,
       authError,

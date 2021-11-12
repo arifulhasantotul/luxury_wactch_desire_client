@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Spinner } from "react-bootstrap";
+import useAuth from "../../../hooks/useAuth";
 import DashNav from "../DashNav/DashNav";
 import "./MakeAdmin.css";
 
 const MakeAdmin = () => {
+   const { userAuthToken } = useAuth();
    const [email, setEmail] = useState("");
    const [posting, setPosting] = useState(false);
    // const [adminCreate, setAdminCreate] = useState(false);
@@ -19,6 +21,7 @@ const MakeAdmin = () => {
       fetch(url, {
          method: "PUT",
          headers: {
+            authorization: `Bearer ${userAuthToken}`,
             "content-type": "application/json",
          },
          body: JSON.stringify(user),
