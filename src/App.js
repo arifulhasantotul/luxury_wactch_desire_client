@@ -20,6 +20,7 @@ import Products from "./Pages/ProductsPage/Products/Products";
 import AddReview from "./Pages/User/AddReview/AddReview";
 import Login from "./Pages/User/Login/Login";
 import Register from "./Pages/User/Register/Register";
+import AdminRoute from "./Shared/AdminRoute/AdminRoute";
 import PrivateRoute from "./Shared/PrivateRoute/PrivateRoute";
 
 function App() {
@@ -51,18 +52,18 @@ function App() {
                   <PrivateRoute exact path="/dashboard/review">
                      <DashReview />
                   </PrivateRoute>
-                  <PrivateRoute exact path="/dashboard/makeAdmin">
+                  <AdminRoute exact path="/dashboard/makeAdmin">
                      <MakeAdmin />
-                  </PrivateRoute>
-                  <PrivateRoute exact path="/dashboard/manageOrders">
+                  </AdminRoute>
+                  <AdminRoute exact path="/dashboard/manageOrders">
                      <ManageOrders />
-                  </PrivateRoute>
-                  <PrivateRoute exact path="/dashboard/manageProducts">
+                  </AdminRoute>
+                  <AdminRoute exact path="/dashboard/manageProducts">
                      <ManageProducts />
-                  </PrivateRoute>
-                  <PrivateRoute exact path="/dashboard/addProduct">
+                  </AdminRoute>
+                  <AdminRoute exact path="/dashboard/addProduct">
                      <AddProduct />
-                  </PrivateRoute>
+                  </AdminRoute>
                   <PrivateRoute path="/addReview">
                      <AddReview />
                   </PrivateRoute>
