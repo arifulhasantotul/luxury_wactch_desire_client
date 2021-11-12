@@ -41,9 +41,17 @@
    background: none;
    border: none;
 }
+.list_item button:hover {
+   box-shadow: var(--box_shadow);
+}
+.list_item .action {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
 .list_item .put {
    font-size: 2rem;
-   color: green;
+   color: rgb(54, 211, 54);
 }
 .list_item .reject {
    font-size: 2rem;
@@ -75,5 +83,8 @@
    }
    .list_item .hide_div {
       display: none;
+   }
+   .list_item .action {
+      flex-wrap: wrap;
    }
 }

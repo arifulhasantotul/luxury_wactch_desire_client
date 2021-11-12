@@ -44,28 +44,28 @@ function App() {
                   <Route path="/login">
                      <Login />
                   </Route>
-                  <PrivateRoute exact path="/dashboard/myOrders">
+                  <PrivateRoute path="/dashboard/myOrders">
                      <MyOrders />
                   </PrivateRoute>
-                  <PrivateRoute exact path="/dashboard/pay">
+                  <PrivateRoute path="/dashboard/pay">
                      <DashPay />
                   </PrivateRoute>
-                  <PrivateRoute exact path="/dashboard/review">
+                  <PrivateRoute path="/dashboard/review">
                      <DashReview />
                   </PrivateRoute>
-                  <AdminRoute exact path="/dashboard/makeAdmin">
+                  <AdminRoute path="/dashboard/makeAdmin">
                      <MakeAdmin />
                   </AdminRoute>
-                  <AdminRoute exact path="/dashboard/manageOrders">
+                  <AdminRoute path="/dashboard/manageOrders">
                      <ManageOrders />
                   </AdminRoute>
-                  <AdminRoute exact path="/dashboard/manageProducts">
+                  <AdminRoute path="/dashboard/manageProducts">
                      <ManageProducts />
                   </AdminRoute>
-                  <AdminRoute exact path="/dashboard/manageUsers">
+                  <AdminRoute path="/dashboard/manageUsers">
                      <ManageUsers />
                   </AdminRoute>
-                  <AdminRoute exact path="/dashboard/addProduct">
+                  <AdminRoute path="/dashboard/addProduct">
                      <AddProduct />
                   </AdminRoute>
                   <PrivateRoute path="/addReview">
