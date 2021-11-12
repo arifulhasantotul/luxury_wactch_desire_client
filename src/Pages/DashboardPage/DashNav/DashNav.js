@@ -1,5 +1,6 @@
 import React from "react";
 import * as BiIcons from "react-icons/bi";
+import * as FiIcons from "react-icons/fi";
 import * as MdIcons from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
@@ -76,6 +77,14 @@ const DashNav = () => {
                      >
                         <MdIcons.MdBarChart className="sidebarIcon" />
                         Manage Orders
+                     </NavLink>
+                     <NavLink
+                        activeClassName="selected"
+                        to="/dashboard/manageUsers"
+                        className="sidebarListItem"
+                     >
+                        <FiIcons.FiUsers className="sidebarIcon" />
+                        Manage Users
                      </NavLink>
                   </ul>
                </div>

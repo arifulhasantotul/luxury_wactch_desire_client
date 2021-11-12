@@ -13,6 +13,7 @@ import DashReview from "./Pages/DashboardPage/DashReview/DashReview";
 import MakeAdmin from "./Pages/DashboardPage/MakeAdmin/MakeAdmin";
 import ManageOrders from "./Pages/DashboardPage/ManageOrders/ManageOrders";
 import ManageProducts from "./Pages/DashboardPage/ManageProducts/ManageProducts";
+import ManageUsers from "./Pages/DashboardPage/ManageUsers/ManageUsers";
 import Home from "./Pages/Home/Home";
 import MyOrders from "./Pages/OrdersPage/MyOrders/MyOrders";
 import Shipping from "./Pages/OrdersPage/Shipping/Shipping";
@@ -60,6 +61,9 @@ function App() {
                   </AdminRoute>
                   <AdminRoute exact path="/dashboard/manageProducts">
                      <ManageProducts />
+                  </AdminRoute>
+                  <AdminRoute exact path="/dashboard/manageUsers">
+                     <ManageUsers />
                   </AdminRoute>
                   <AdminRoute exact path="/dashboard/addProduct">
                      <AddProduct />

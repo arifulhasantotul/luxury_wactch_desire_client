@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DashNav from "../DashNav/DashNav";
 
 const ManageUsers = () => {
+   const [users, setUsers] = useState([]);
+   const [usersLoading, setUsersLoading] = useState("");
+   useEffect(() => {
+      setUsersLoading(true);
+      const url = `http://localhost:8080/users`;
+      fetch(url)
+         .then((res) => res.json())
+         .then((data) => {
+            setUsers(data);
+            console.log(data);
+         })
+         .catch((error) => {
+            console.log(error);
+         })
+         .finally(() => setUsersLoading(false));
+   }, []);
+   console.log(users, usersLoading);
    return (
       <div className="container-fluid dashPage_wrapper">
          <section className="dashNav">
