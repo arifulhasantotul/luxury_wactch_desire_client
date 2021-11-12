@@ -56,7 +56,7 @@ const DashNav = () => {
                      className="sidebarListItem"
                   >
                      <MdIcons.MdStorefront className="sidebarIcon" />
-                     Add Products
+                     Add Product
                   </NavLink>
                   <NavLink
                      activeClassName="selected"

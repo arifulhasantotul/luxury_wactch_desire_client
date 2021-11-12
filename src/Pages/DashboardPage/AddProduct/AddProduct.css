@@ -1,0 +1,101 @@
+.dash_form_wrapper {
+   text-align: center;
+   background: var(--bg);
+   height: 100%;
+}
+.dash_form_wrapper .dash_form_login .input_field {
+   width: 75%;
+   margin: 0 auto;
+}
+.dash_form_wrapper .dash_form_login .input_field span {
+   display: block;
+   padding: 0.5rem 0;
+   font-size: 1.5rem;
+   color: var(--light_color);
+   text-align: left;
+}
+.dash_form_login {
+   max-width: 55rem;
+   margin: 0 auto;
+   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+   border-radius: 0.5rem;
+   padding: 2rem 0;
+   background: var(--bg_dark);
+}
+.dash_form_wrapper .dash_form_login .input_field .error {
+   margin: 0 auto;
+   margin-top: -5px;
+   text-align: start;
+   color: red;
+}
+
+.dash_form_wrapper .dash_form_login .input_field .error::before {
+   display: inline;
+   content: "⚠ ";
+}
+.dash_form_wrapper .dash_form_login .input_field input,
+.dash_form_wrapper .dash_form_login .input_field textarea {
+   background: var(--bg) !important;
+   border: none;
+   border-radius: 0.5rem;
+   padding: 1rem;
+   font-size: 1.6rem;
+   color: var(--gray);
+   text-transform: none;
+   margin-bottom: 1rem;
+   width: 100%;
+}
+.dash_form_wrapper .dash_form_login .input_field textarea {
+   height: 20rem;
+   resize: none;
+}
+.dash_form_wrapper .dash_form_login .input_field input:focus,
+.dash_form_wrapper .dash_form_login .input_field textarea:focus {
+   border: 0.1rem solid var(--green);
+}
+.dash_form_wrapper p {
+   font-size: 1.5rem;
+   color: var(--light_color);
+   margin-top: 1rem;
+}
+.dash_form_wrapper p a {
+   color: var(--white);
+}
+.dash_form_wrapper p a:hover {
+   text-decoration: underline;
+   color: var(--light_color);
+}
+.dash_form_wrapper .other_login {
+   margin-top: 2rem;
+}
+.dash_form_wrapper .other_login button {
+   border: none;
+   padding: 0.7rem 1.8rem;
+   border-radius: 2rem;
+   background: var(--bg_dark);
+   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+}
+.dash_form_wrapper .other_login button:hover {
+   opacity: 0.5;
+}
+.dash_form_wrapper .other_login .login_icon {
+   font-size: 4rem;
+}
+@media (max-width: 1024px) {
+   .form_wrapper {
+      height: 58vh;
+      padding-left: 12%;
+   }
+}
+@media (max-width: 768px) {
+   .form_wrapper {
+      height: 100%;
+      /* padding-left: 12%; */
+   }
+}
+@media (max-width: 450px) {
+   .form_wrapper {
+      height: 100%;
+      /* padding-left: 12%; */
+   }
+}

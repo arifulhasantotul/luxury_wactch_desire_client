@@ -10,6 +10,9 @@ import AuthProvider from "./context/AuthProvider";
 import AddProduct from "./Pages/DashboardPage/AddProduct/AddProduct";
 import DashPay from "./Pages/DashboardPage/DashPay/DashPay";
 import DashReview from "./Pages/DashboardPage/DashReview/DashReview";
+import MakeAdmin from "./Pages/DashboardPage/MakeAdmin/MakeAdmin";
+import ManageOrders from "./Pages/DashboardPage/ManageOrders/ManageOrders";
+import ManageProducts from "./Pages/DashboardPage/ManageProducts/ManageProducts";
 import Home from "./Pages/Home/Home";
 import MyOrders from "./Pages/OrdersPage/MyOrders/MyOrders";
 import Shipping from "./Pages/OrdersPage/Shipping/Shipping";
@@ -48,11 +51,20 @@ function App() {
                   <PrivateRoute exact path="/dashboard/review">
                      <DashReview />
                   </PrivateRoute>
+                  <PrivateRoute exact path="/dashboard/makeAdmin">
+                     <MakeAdmin />
+                  </PrivateRoute>
+                  <PrivateRoute exact path="/dashboard/manageOrders">
+                     <ManageOrders />
+                  </PrivateRoute>
+                  <PrivateRoute exact path="/dashboard/manageProducts">
+                     <ManageProducts />
+                  </PrivateRoute>
+                  <PrivateRoute exact path="/dashboard/addProduct">
+                     <AddProduct />
+                  </PrivateRoute>
                   <PrivateRoute path="/addReview">
                      <AddReview />
-                  </PrivateRoute>
-                  <PrivateRoute path="/addProduct">
-                     <AddProduct />
                   </PrivateRoute>
                   <Route path="/register">
                      <Register />

@@ -154,6 +154,9 @@ li {
       text-transform: uppercase;
       margin: 0.5rem;
    }
+   .dash_heading span.space {
+      display: block;
+   }
    .home_slider .slide_item {
       padding-left: 12%;
    }
