@@ -1,4 +1,5 @@
 import React from "react";
+import * as BiIcons from "react-icons/bi";
 import * as MdIcons from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import "./DashNav.css";
@@ -32,7 +33,7 @@ const DashNav = () => {
                      to="/dashboard/review"
                      className="sidebarListItem"
                   >
-                     <MdIcons.MdTrendingUp className="sidebarIcon" />
+                     <BiIcons.BiCommentDetail className="sidebarIcon" />
                      Review
                   </NavLink>
                </ul>

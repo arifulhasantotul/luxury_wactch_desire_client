@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "swiper/swiper-bundle.css";
 import "./App.css";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import NotFound from "./components/NotFound/NotFound";
@@ -63,6 +64,7 @@ function App() {
                      <NotFound />
                   </Route>
                </Switch>
+               <Footer />
             </Router>
          </AuthProvider>
       </>

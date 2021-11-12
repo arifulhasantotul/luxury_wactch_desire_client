@@ -1,5 +1,5 @@
 .header {
-   background: var(--bg);
+   background: var(--bg_dark);
    box-shadow: var(--box_shadow);
 }
 .header_navbar {

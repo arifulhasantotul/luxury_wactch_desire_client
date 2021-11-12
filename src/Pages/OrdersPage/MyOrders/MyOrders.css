@@ -4,7 +4,7 @@
    background: var(--bg);
    color: var(--light_color);
    position: sticky;
-   top: 10rem;
+   top: 0rem;
 }
 
 .order_wrapper .box {
