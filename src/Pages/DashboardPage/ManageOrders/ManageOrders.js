@@ -72,7 +72,7 @@ const ManageOrders = () => {
                            {" "}
                            <h3>Status</h3>
                         </Col>
-                        <Col className="my-auto hide_div">
+                        <Col sm={2} className="my-auto hide_div">
                            <h3>Action</h3>
                         </Col>
                      </Row>

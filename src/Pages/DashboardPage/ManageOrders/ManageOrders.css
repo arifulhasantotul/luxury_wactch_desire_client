@@ -25,14 +25,17 @@
    width: 50%;
    margin: 0 auto;
 }
+.list_item p.available,
 .list_item p.shipped {
    background: #e5faf228;
    color: #3bb077;
 }
+.list_item p.outStock,
 .list_item p.rejected {
    background: #fff0f123;
    color: #d95087;
 }
+.list_item p.upcoming,
 .list_item p.pending {
    background: #a5baec13;
    color: #2a7ade;

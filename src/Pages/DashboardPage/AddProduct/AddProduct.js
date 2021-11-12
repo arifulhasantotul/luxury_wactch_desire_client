@@ -12,6 +12,7 @@ const AddProduct = () => {
       price: "",
       rating: "",
       img: "",
+      status: "Available",
    };
    const [productInfo, setProductInfo] = useState(initialInfo);
 
