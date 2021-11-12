@@ -4,24 +4,36 @@ import DashNav from "../DashNav/DashNav";
 import "./MakeAdmin.css";
 
 const MakeAdmin = () => {
+   const [email, setEmail] = useState("");
    const [posting, setPosting] = useState(false);
-   const initialInfo = {
-      email: "",
-   };
-   const [productInfo, setProductInfo] = useState(initialInfo);
+   // const [adminCreate, setAdminCreate] = useState(false);
 
    const handleOnBlur = (e) => {
-      const field = e.target.name;
-      const value = e.target.value;
-      const newInfo = { ...productInfo };
-      newInfo[field] = value;
-      console.log(newInfo);
-      setProductInfo(newInfo);
+      setEmail(e.target.value);
    };
-
    const handleMakeAdmin = (e) => {
-      e.preventDefault();
       setPosting(true);
+      const user = { email };
+      e.preventDefault();
+      const url = `http://localhost:8080/users/admin`;
+      fetch(url, {
+         method: "PUT",
+         headers: {
+            "content-type": "application/json",
+         },
+         body: JSON.stringify(user),
+      })
+         .then((res) => res.json())
+         .then((data) => {
+            if (data.modifiedCount) {
+               console.log(data);
+               // setAdminCreate(true);
+               alert("Admin created");
+               setEmail("");
+            }
+         })
+         .catch((error) => console.log(error))
+         .finally(() => setPosting(false));
    };
    return (
       <div>
@@ -49,6 +61,7 @@ const MakeAdmin = () => {
                         onBlur={handleOnBlur}
                         type="email"
                         name="email"
+                        placeholder="********@gmail.com"
                         required
                      />
                   </div>

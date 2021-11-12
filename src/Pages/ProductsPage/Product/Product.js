@@ -44,11 +44,11 @@ const Product = ({ watch }) => {
                alert(
                   "Successfully added to order list but you have to login to see orders list"
                );
-               history.push(`/myOrders`);
+               history.push(`/dashboard/myOrders`);
             }
             if (data.insertedId && user.email) {
                alert("Successfully added to order list");
-               history.push(`/myOrders`);
+               history.push(`/dashboard/myOrders`);
             }
          })
          .catch((error) => {
