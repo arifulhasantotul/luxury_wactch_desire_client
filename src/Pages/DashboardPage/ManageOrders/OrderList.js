@@ -9,7 +9,7 @@ const OrderList = ({ orders, setOrders, order, setOrdersLoading }) => {
    const handleOrderDelete = (id) => {
       const deleteApi = window.confirm("Do you want to delete this?");
       if (deleteApi) {
-         const url = `http://localhost:8080/orders/${id}`;
+         const url = `https://stormy-oasis-18134.herokuapp.com/orders/${id}`;
          fetch(url, {
             method: "DELETE",
             headers: {
@@ -32,7 +32,7 @@ const OrderList = ({ orders, setOrders, order, setOrdersLoading }) => {
    const statusShipped = { status: "Shipped" };
    const statusRejected = { status: "Rejected" };
    const handleUpdateStatus = (id, status) => {
-      const url = `http://localhost:8080/orders/${id}`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/orders/${id}`;
       fetch(url, {
          method: "PUT",
          headers: {
@@ -52,7 +52,7 @@ const OrderList = ({ orders, setOrders, order, setOrdersLoading }) => {
 
    const handleRefresh = () => {
       setOrdersLoading(true);
-      const url = `http://localhost:8080/orders`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/orders`;
       fetch(url)
          .then((res) => res.json())
          .then((data) => {

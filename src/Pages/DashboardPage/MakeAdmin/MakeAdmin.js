@@ -20,7 +20,7 @@ const MakeAdmin = () => {
       const user = { email };
       console.log(user);
       e.preventDefault();
-      const url = `http://localhost:8080/users/admin`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/users/admin`;
       fetch(url, {
          method: "PUT",
          headers: {

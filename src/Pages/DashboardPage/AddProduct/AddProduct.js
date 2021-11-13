@@ -31,7 +31,7 @@ const AddProduct = () => {
       const newProduct = {
          ...productInfo,
       };
-      const url = `http://localhost:8080/products`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/products`;
       fetch(url, {
          method: "POST",
          headers: {

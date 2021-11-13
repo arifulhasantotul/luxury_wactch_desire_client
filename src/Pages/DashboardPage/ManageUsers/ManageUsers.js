@@ -10,7 +10,7 @@ const ManageUsers = () => {
    const [usersLoading, setUsersLoading] = useState("");
    useEffect(() => {
       setUsersLoading(true);
-      const url = `http://localhost:8080/users`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/users`;
       fetch(url)
          .then((res) => res.json())
          .then((data) => {

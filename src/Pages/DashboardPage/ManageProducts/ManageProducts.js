@@ -10,7 +10,7 @@ const ManageProducts = () => {
    const [productsLoading, setProductsLoading] = useState("");
    useEffect(() => {
       setProductsLoading(true);
-      const url = `http://localhost:8080/products`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/products`;
       fetch(url)
          .then((res) => res.json())
          .then((data) => {

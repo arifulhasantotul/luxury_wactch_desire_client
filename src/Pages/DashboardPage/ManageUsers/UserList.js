@@ -10,7 +10,7 @@ const UserList = ({ users, setUsers, user, setUsersLoading }) => {
    const handleUserDelete = (id) => {
       const deleteApi = window.confirm("Do you want to delete this?");
       if (deleteApi) {
-         const url = `http://localhost:8080/users/${id}`;
+         const url = `https://stormy-oasis-18134.herokuapp.com/users/${id}`;
          fetch(url, {
             method: "DELETE",
             headers: {
@@ -32,7 +32,7 @@ const UserList = ({ users, setUsers, user, setUsersLoading }) => {
    // update role
    const roleModerator = { role: "moderator" };
    const handleUpdateRole = (id, role) => {
-      const url = `http://localhost:8080/users/${id}`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/users/${id}`;
       fetch(url, {
          method: "PUT",
          headers: {
@@ -52,7 +52,7 @@ const UserList = ({ users, setUsers, user, setUsersLoading }) => {
 
    const handleRefresh = () => {
       setUsersLoading(true);
-      const url = `http://localhost:8080/users`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/users`;
       fetch(url)
          .then((res) => res.json())
          .then((data) => {

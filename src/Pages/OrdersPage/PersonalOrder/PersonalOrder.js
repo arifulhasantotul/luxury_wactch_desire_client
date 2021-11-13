@@ -22,7 +22,7 @@ const PersonalOrder = ({ order, orders, setOrders }) => {
    const handleOrderDelete = (id) => {
       const deleteApi = window.confirm("Do you want to delete this?");
       if (deleteApi) {
-         const url = `http://localhost:8080/orders/${id}`;
+         const url = `https://stormy-oasis-18134.herokuapp.com/orders/${id}`;
          fetch(url, {
             method: "DELETE",
             headers: {

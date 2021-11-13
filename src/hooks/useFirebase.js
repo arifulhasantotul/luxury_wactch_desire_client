@@ -120,7 +120,7 @@ const useFirebase = () => {
    }, [auth]);
 
    useEffect(() => {
-      const url = `http://localhost:8080/users/${user.email}`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/users/${user.email}`;
       fetch(url)
          .then((res) => res.json())
          .then((data) => setAdmin(data.admin))
@@ -130,7 +130,7 @@ const useFirebase = () => {
 
    const saveUser = (displayName, email, method) => {
       const user = { displayName, email };
-      const url = `http://localhost:8080/users`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/users`;
       fetch(url, {
          method: method,
          headers: {

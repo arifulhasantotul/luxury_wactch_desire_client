@@ -16,7 +16,7 @@ const ProductList = ({
    const handleProductDelete = (id) => {
       const deleteApi = window.confirm("Do you want to delete this?");
       if (deleteApi) {
-         const url = `http://localhost:8080/products/${id}`;
+         const url = `https://stormy-oasis-18134.herokuapp.com/products/${id}`;
          fetch(url, {
             method: "DELETE",
             headers: {
@@ -41,7 +41,7 @@ const ProductList = ({
    const statusUpcoming = { status: "Upcoming" };
    const statusStock = { status: "Stock out" };
    const handleUpdateStatus = (id, status) => {
-      const url = `http://localhost:8080/products/${id}`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/products/${id}`;
       fetch(url, {
          method: "PUT",
          headers: {
@@ -62,7 +62,7 @@ const ProductList = ({
    // handleRefresh
    const handleRefresh = () => {
       setProductsLoading(true);
-      const url = `http://localhost:8080/products`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/products`;
       fetch(url)
          .then((res) => res.json())
          .then((data) => {

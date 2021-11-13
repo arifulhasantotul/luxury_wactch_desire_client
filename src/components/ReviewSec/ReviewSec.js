@@ -26,7 +26,7 @@ const ReviewSec = () => {
    };
    useEffect(() => {
       setReviewsLoading(true);
-      const url = `http://localhost:8080/reviews`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/reviews`;
       fetch(url)
          .then((res) => res.json())
          .then((data) => {

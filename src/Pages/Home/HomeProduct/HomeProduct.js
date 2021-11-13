@@ -28,7 +28,7 @@ const HomeProduct = ({ watch }) => {
          status,
       };
 
-      const url = `http://localhost:8080/orders`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/orders`;
       fetch(url, {
          method: "POST",
          headers: {

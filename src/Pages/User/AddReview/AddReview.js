@@ -30,7 +30,7 @@ const AddReview = () => {
       const newReview = {
          ...reviewInfo,
       };
-      const url = `http://localhost:8080/reviews`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/reviews`;
       fetch(url, {
          method: "POST",
          headers: {

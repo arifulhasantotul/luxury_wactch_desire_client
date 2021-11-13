@@ -9,7 +9,7 @@ const HomeProducts = () => {
    const size = 6;
    useEffect(() => {
       setProductsLoading(true);
-      const url = `http://localhost:8080/products?size=${size}`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/products?size=${size}`;
       fetch(url)
          .then((res) => res.json())
          .then((data) => {

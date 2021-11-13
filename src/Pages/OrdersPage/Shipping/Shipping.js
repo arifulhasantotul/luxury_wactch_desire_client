@@ -30,7 +30,7 @@ const Shipping = () => {
    // get shipping
    const handleShippingInfo = () => {
       setPosting(true);
-      const url = `http://localhost:8080/shipping?email=${user.email}`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/shipping?email=${user.email}`;
       fetch(url)
          .then((res) => res.json())
          .then((data) => setShippingInfo(data))
@@ -45,7 +45,7 @@ const Shipping = () => {
       const newShipping = {
          ...reviewInfo,
       };
-      const url = `http://localhost:8080/shipping`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/shipping`;
       fetch(url, {
          method: "POST",
          headers: {

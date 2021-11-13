@@ -20,7 +20,7 @@ const MyOrders = () => {
 
    useEffect(() => {
       setOrdersLoading(true);
-      const url = `http://localhost:8080/orders?email=${user.email}`;
+      const url = `https://stormy-oasis-18134.herokuapp.com/orders?email=${user.email}`;
       fetch(url)
          .then((res) => res.json())
          .then((data) => {
