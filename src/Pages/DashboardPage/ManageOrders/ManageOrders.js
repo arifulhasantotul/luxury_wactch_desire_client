@@ -16,7 +16,6 @@ const ManageOrders = () => {
          .then((res) => res.json())
          .then((data) => {
             setOrders(data);
-            console.log(data);
          })
          .catch((error) => {
             console.log(error);
@@ -84,6 +83,7 @@ const ManageOrders = () => {
                            setOrders={setOrders}
                            key={order._id}
                            order={order}
+                           setOrdersLoading={setOrdersLoading}
                         />
                      ))}
                   {ordersLoading &&

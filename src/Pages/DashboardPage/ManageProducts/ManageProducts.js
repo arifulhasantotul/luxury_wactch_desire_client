@@ -15,7 +15,6 @@ const ManageProducts = () => {
          .then((res) => res.json())
          .then((data) => {
             setProducts(data);
-            console.log(data);
          })
          .catch((error) => {
             console.log(error);
@@ -85,6 +84,7 @@ const ManageProducts = () => {
                            setProducts={setProducts}
                            key={product._id}
                            product={product}
+                           setProductsLoading={setProductsLoading}
                         />
                      ))}
                   {productsLoading &&

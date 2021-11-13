@@ -33,7 +33,7 @@ const DashReview = () => {
          .then((data) => {
             setReviews(data);
          })
-         .catch((error) => console.l(error))
+         .catch((error) => console.log(error))
          .finally(() => setReviewsLoading(false));
    }, []);
    return (

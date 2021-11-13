@@ -3,10 +3,13 @@ import { Col, Row } from "react-bootstrap";
 import * as FaIcons from "react-icons/fa";
 import * as MdIcons from "react-icons/md";
 import Rating from "react-rating";
-import { useHistory } from "react-router-dom";
 
-const ProductList = ({ products, setProducts, product }) => {
-   const history = useHistory();
+const ProductList = ({
+   products,
+   setProducts,
+   product,
+   setProductsLoading,
+}) => {
    const { _id, img, name, offerPrice, price, rating, status } = product;
 
    // order delete
@@ -51,9 +54,25 @@ const ProductList = ({ products, setProducts, product }) => {
             console.log(data);
             if (data.modifiedCount) {
                alert(`Updated Successfully`);
-               history.push(`/dashboard/manageProducts`);
+               handleRefresh();
             }
          });
+   };
+
+   // handleRefresh
+   const handleRefresh = () => {
+      setProductsLoading(true);
+      const url = `http://localhost:8080/products`;
+      fetch(url)
+         .then((res) => res.json())
+         .then((data) => {
+            setProducts(data);
+            console.log(data);
+         })
+         .catch((error) => {
+            console.log(error);
+         })
+         .finally(() => setProductsLoading(false));
    };
 
    return (

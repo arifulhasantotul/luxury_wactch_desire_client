@@ -1,15 +1,16 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import * as MdIcons from "react-icons/md";
+import img from "../../../images/user.png";
 
-const OrderList = ({ orders, setOrders, order, setOrdersLoading }) => {
-   const { _id, buyer, email, img, name, offerPrice, status } = order;
+const UserList = ({ users, setUsers, user, setUsersLoading }) => {
+   const { _id, displayName, email, role } = user;
 
    // order delete
-   const handleOrderDelete = (id) => {
+   const handleUserDelete = (id) => {
       const deleteApi = window.confirm("Do you want to delete this?");
       if (deleteApi) {
-         const url = `http://localhost:8080/orders/${id}`;
+         const url = `http://localhost:8080/users/${id}`;
          fetch(url, {
             method: "DELETE",
             headers: {
@@ -21,24 +22,23 @@ const OrderList = ({ orders, setOrders, order, setOrdersLoading }) => {
             .then((data) => {
                if (data.deletedCount) {
                   alert("Deleted Successfully");
-                  const remaining = orders.filter((order) => order._id !== id);
-                  setOrders(remaining);
+                  const remaining = users.filter((order) => order._id !== id);
+                  setUsers(remaining);
                }
             });
       }
    };
 
-   // update status
-   const statusShipped = { status: "Shipped" };
-   const statusRejected = { status: "Rejected" };
-   const handleUpdateStatus = (id, status) => {
-      const url = `http://localhost:8080/orders/${id}`;
+   // update role
+   const roleModerator = { role: "moderator" };
+   const handleUpdateRole = (id, role) => {
+      const url = `http://localhost:8080/users/${id}`;
       fetch(url, {
          method: "PUT",
          headers: {
             "content-type": "application/json",
          },
-         body: JSON.stringify(status),
+         body: JSON.stringify(role),
       })
          .then((res) => res.json())
          .then((data) => {
@@ -51,18 +51,18 @@ const OrderList = ({ orders, setOrders, order, setOrdersLoading }) => {
    };
 
    const handleRefresh = () => {
-      setOrdersLoading(true);
-      const url = `http://localhost:8080/orders`;
+      setUsersLoading(true);
+      const url = `http://localhost:8080/users`;
       fetch(url)
          .then((res) => res.json())
          .then((data) => {
-            setOrders(data);
+            setUsers(data);
             console.log(data);
          })
          .catch((error) => {
             console.log(error);
          })
-         .finally(() => setOrdersLoading(false));
+         .finally(() => setUsersLoading(false));
    };
 
    return (
@@ -70,31 +70,31 @@ const OrderList = ({ orders, setOrders, order, setOrdersLoading }) => {
          <Row className="list_item ">
             <Col className="my-auto hide_div">
                <div className="figure">
-                  <img className="img-fluid" src={img} alt="" />
+                  <img
+                     className="img-fluid"
+                     src={img}
+                     style={{ padding: "1rem" }}
+                     alt=""
+                  />
                </div>
             </Col>
             <Col className="my-auto">
-               <h4>{name}</h4>
+               <h4>{displayName}</h4>
             </Col>
-            <Col className="my-auto hide_div">
-               <h5>$ {offerPrice}</h5>
+            <Col className="my-auto ">
+               <h4>{email}</h4>
             </Col>
-            <Col className="my-auto hide_div">
-               <h4>{buyer}</h4>
-            </Col>
-            <Col className="my-auto">
-               <h5>{email}</h5>
-            </Col>
+
             <Col className="my-auto">
                {" "}
                <p
                   className={
-                     (status === "Pending" && "pending") ||
-                     (status === "Shipped" && "shipped") ||
-                     "rejected"
+                     (role === "admin" && "admin") ||
+                     (role === "moderator" && "moderator") ||
+                     "member"
                   }
                >
-                  {status}
+                  {role ? role : "member"}
                </p>
             </Col>
             <Col sm={2} className="action">
@@ -102,27 +102,22 @@ const OrderList = ({ orders, setOrders, order, setOrdersLoading }) => {
                   <button
                      className="put"
                      onClick={() => {
-                        handleUpdateStatus(_id, statusShipped);
+                        handleUpdateRole(_id, roleModerator);
                      }}
                   >
-                     <MdIcons.MdOutlineLocalShipping />
+                     <MdIcons.MdAddModerator />
                   </button>
                </div>
                <div>
-                  <button
-                     className="reject"
-                     onClick={() => {
-                        handleUpdateStatus(_id, statusRejected);
-                     }}
-                  >
-                     <MdIcons.MdOutlineCancel />
+                  <button className="reject" onClick={handleRefresh}>
+                     <MdIcons.MdAutorenew />
                   </button>
                </div>
                <div>
                   <button
                      className="del"
                      onClick={() => {
-                        handleOrderDelete(_id);
+                        handleUserDelete(_id);
                      }}
                   >
                      <MdIcons.MdDeleteOutline />
@@ -134,4 +129,4 @@ const OrderList = ({ orders, setOrders, order, setOrdersLoading }) => {
    );
 };
 
-export default OrderList;
+export default UserList;

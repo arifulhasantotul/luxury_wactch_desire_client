@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Spinner } from "react-bootstrap";
-import useAuth from "../../../hooks/useAuth";
+import { useHistory } from "react-router-dom";
+// import useAuth from "../../../hooks/useAuth";
 import DashNav from "../DashNav/DashNav";
 import "./MakeAdmin.css";
 
 const MakeAdmin = () => {
-   const { userAuthToken } = useAuth();
+   const history = useHistory();
+   // const { userAuthToken } = useAuth();
    const [email, setEmail] = useState("");
    const [posting, setPosting] = useState(false);
    // const [adminCreate, setAdminCreate] = useState(false);
@@ -16,13 +18,14 @@ const MakeAdmin = () => {
    const handleMakeAdmin = (e) => {
       setPosting(true);
       const user = { email };
+      console.log(user);
       e.preventDefault();
       const url = `http://localhost:8080/users/admin`;
       fetch(url, {
          method: "PUT",
          headers: {
             // sending token to backend
-            authorization: `Bearer ${userAuthToken}`,
+            // authorization: `Bearer ${userAuthToken}`,
             "content-type": "application/json",
          },
          body: JSON.stringify(user),
@@ -33,7 +36,7 @@ const MakeAdmin = () => {
                console.log(data);
                // setAdminCreate(true);
                alert("Admin created");
-               setEmail("");
+               history.push("/dashboard/manageUsers");
             }
          })
          .catch((error) => console.log(error))
