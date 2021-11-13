@@ -15,6 +15,7 @@ import ManageOrders from "./Pages/DashboardPage/ManageOrders/ManageOrders";
 import ManageProducts from "./Pages/DashboardPage/ManageProducts/ManageProducts";
 import ManageUsers from "./Pages/DashboardPage/ManageUsers/ManageUsers";
 import Home from "./Pages/Home/Home";
+import HomeServices from "./Pages/Home/HomeServices/HomeServices";
 import MyOrders from "./Pages/OrdersPage/MyOrders/MyOrders";
 import Shipping from "./Pages/OrdersPage/Shipping/Shipping";
 import Products from "./Pages/ProductsPage/Products/Products";
@@ -43,6 +44,9 @@ function App() {
                   </Route>
                   <Route path="/login">
                      <Login />
+                  </Route>
+                  <Route path="/services">
+                     <HomeServices />
                   </Route>
                   <PrivateRoute path="/dashboard/myOrders">
                      <MyOrders />

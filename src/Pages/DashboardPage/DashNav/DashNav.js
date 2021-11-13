@@ -14,32 +14,34 @@ const DashNav = () => {
             {/* dashboard  */}
             <div className="sidebarMenu">
                <h3 className="sidebarTitle">Dashboard</h3>
-               <ul className="sidebarList">
-                  <NavLink
-                     activeClassName="selected"
-                     to="/dashboard/myOrders"
-                     className="sidebarListItem active"
-                  >
-                     <MdIcons.MdLineStyle className="sidebarIcon" />
-                     My Orders
-                  </NavLink>
-                  <NavLink
-                     activeClassName="selected"
-                     to="/dashboard/pay"
-                     className="sidebarListItem"
-                  >
-                     <MdIcons.MdAttachMoney className="sidebarIcon" />
-                     Pay
-                  </NavLink>
-                  <NavLink
-                     activeClassName="selected"
-                     to="/dashboard/review"
-                     className="sidebarListItem"
-                  >
-                     <BiIcons.BiCommentDetail className="sidebarIcon" />
-                     Review
-                  </NavLink>
-               </ul>
+               {!admin && (
+                  <ul className="sidebarList">
+                     <NavLink
+                        activeClassName="selected"
+                        to="/dashboard/myOrders"
+                        className="sidebarListItem active"
+                     >
+                        <MdIcons.MdLineStyle className="sidebarIcon" />
+                        My Orders
+                     </NavLink>
+                     <NavLink
+                        activeClassName="selected"
+                        to="/dashboard/pay"
+                        className="sidebarListItem"
+                     >
+                        <MdIcons.MdAttachMoney className="sidebarIcon" />
+                        Pay
+                     </NavLink>
+                     <NavLink
+                        activeClassName="selected"
+                        to="/dashboard/review"
+                        className="sidebarListItem"
+                     >
+                        <BiIcons.BiCommentDetail className="sidebarIcon" />
+                        Review
+                     </NavLink>
+                  </ul>
+               )}
             </div>
             {/* admin menu  */}
             {admin && (

@@ -80,7 +80,11 @@ const useFirebase = () => {
       signInWithEmailAndPassword(auth, email, password)
          .then((result) => {
             setAuthError("");
-            history.push(redirect_uri);
+            if (admin) {
+               history.push("/dashboard/makeAdmin");
+            } else {
+               history.push(redirect_uri);
+            }
          })
          .catch((error) => {
             setAuthError(error.message);

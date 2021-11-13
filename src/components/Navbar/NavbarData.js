@@ -106,9 +106,9 @@ export const SidebarData = [
    },
    {
       id: 11,
-      title: "Service",
+      title: "Services",
       tClass: "nav_link",
-      path: "/settings",
+      path: "/services",
       icon: <BiIcons.BiCog />,
    },
 ];
