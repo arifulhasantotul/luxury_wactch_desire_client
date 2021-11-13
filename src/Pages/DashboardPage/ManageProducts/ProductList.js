@@ -98,6 +98,7 @@ const ProductList = ({
                      initialRating={rating}
                      emptySymbol={<FaIcons.FaRegStar />}
                      fullSymbol={<FaIcons.FaStar />}
+                     style={{ color: "rgb(54, 211, 54)" }}
                      readonly
                   />
                </h5>

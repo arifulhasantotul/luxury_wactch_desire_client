@@ -21,7 +21,6 @@ const ManageUsers = () => {
          })
          .finally(() => setUsersLoading(false));
    }, []);
-   console.log(users, usersLoading);
    return (
       <div>
          <div className="container-fluid dashPage_wrapper">

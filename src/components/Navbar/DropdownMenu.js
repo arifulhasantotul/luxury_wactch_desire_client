@@ -2,8 +2,8 @@ import React from "react";
 import { IconContext } from "react-icons";
 import { NavLink } from "react-router-dom";
 
-const DropdownMenu = (props) => {
-   const { title, tClass, path, icon } = props.dropdownItem;
+const DropdownMenu = ({ dropdownItem }) => {
+   const { title, tClass, path, icon } = dropdownItem;
 
    return (
       <>

@@ -76,20 +76,24 @@
    text-decoration: line-through;
 }
 .order_wrapper .box .content .shipped,
+.order_wrapper .box .content .rejected,
 .order_wrapper .box .content .pending {
-   font-size: 1rem;
+   font-size: 1.2rem;
    letter-spacing: 0.2rem;
-   color: rgb(241, 20, 20);
-   background: rgba(221, 162, 162, 0.164);
-
-   width: 7rem;
+   color: var(--reject_text);
+   background: var(--reject_bg);
+   width: 8rem;
    padding-left: 1rem;
    border-radius: 1rem;
    font-weight: 600;
 }
 .order_wrapper .box .content .shipped {
-   color: rgb(47, 209, 47);
-   background: rgba(63, 231, 63, 0.068);
+   color: var(--approve_text);
+   background: var(--approve_bg);
+}
+.order_wrapper .box .content .pending {
+   color: var(--pending_text);
+   background: var(--pending_bg);
 }
 @media (max-width: 1024px) {
    html {

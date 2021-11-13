@@ -89,7 +89,13 @@ const PersonalOrder = ({ order, orders, setOrders }) => {
                   {" "}
                   ${offerPrice} <span>${price}</span>
                </div>
-               <div className={status === "Pending" ? "pending" : "shipped"}>
+               <div
+                  className={
+                     (status === "Pending" && "pending") ||
+                     (status === "Shipped" && "shipped") ||
+                     "rejected"
+                  }
+               >
                   {status}
                </div>
                <button

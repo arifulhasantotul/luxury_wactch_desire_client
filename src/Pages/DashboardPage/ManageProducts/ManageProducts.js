@@ -21,7 +21,6 @@ const ManageProducts = () => {
          })
          .finally(() => setProductsLoading(false));
    }, []);
-   console.log(products, productsLoading);
    return (
       <div>
          <div className="container-fluid dashPage_wrapper">

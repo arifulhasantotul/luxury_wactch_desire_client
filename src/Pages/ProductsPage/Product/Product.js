@@ -10,7 +10,6 @@ const Product = ({ watch }) => {
    const { user } = useAuth();
    const history = useHistory();
    const [modalShow, setModalShow] = useState(false);
-   console.log(watch);
    const { name, details, offerPrice, price, rating, img } = watch;
 
    const handleOrder = () => {

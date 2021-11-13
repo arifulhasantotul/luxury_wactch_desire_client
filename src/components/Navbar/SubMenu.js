@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import DropdownMenu from "./DropdownMenu";
 
-const SubMenu = (props) => {
-   const { tClass, path, icon, title, subNav, iconOpened, iconClosed } =
-      props.item;
+const SubMenu = ({ item, setOpenSidebar }) => {
+   const { tClass, path, icon, title, subNav, iconOpened, iconClosed } = item;
 
    const [openDropDown, setOpenDropDown] = useState(false);
    const showDropDownMenu = () => setOpenDropDown(!openDropDown);
@@ -17,7 +16,7 @@ const SubMenu = (props) => {
             activeClassName="selected"
             onClick={subNav && showDropDownMenu}
          >
-            <div className="menu_row">
+            <div className="menu_row" onClick={() => setOpenSidebar(false)}>
                {icon} <span className="link_name">{title}</span>
             </div>
             <div className="arrow">

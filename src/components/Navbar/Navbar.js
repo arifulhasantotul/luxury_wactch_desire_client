@@ -10,7 +10,7 @@ import { SidebarData } from "./NavbarData";
 import SubMenu from "./SubMenu";
 
 const Navbar = () => {
-   const { user, logout } = useAuth();
+   const { user, admin, logout } = useAuth();
    const history = useHistory();
    const [openSidebar, setOpenSidebar] = useState(false);
    const toggleSidebar = () => setOpenSidebar(!openSidebar);
@@ -39,7 +39,11 @@ const Navbar = () => {
                   {/* slick sidebar container  */}
                   <ul className="nav_menu_items">
                      {SidebarData.map((menuItem) => (
-                        <SubMenu key={menuItem.id} item={menuItem}></SubMenu>
+                        <SubMenu
+                           setOpenSidebar={setOpenSidebar}
+                           key={menuItem.id}
+                           item={menuItem}
+                        ></SubMenu>
                      ))}
                   </ul>
                </IconContext.Provider>
@@ -48,6 +52,12 @@ const Navbar = () => {
                <div className="profile_details">
                   <div className="profile_content">
                      <img src={user.photoURL ? user.photoURL : pic} alt="" />
+
+                     {admin && (
+                        <span>
+                           <BiIcons.BiCheckShield />
+                        </span>
+                     )}
                   </div>
                   <div className="name_job">
                      <div className="profile_name">

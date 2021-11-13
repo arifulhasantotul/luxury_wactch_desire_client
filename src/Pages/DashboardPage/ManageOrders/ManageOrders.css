@@ -28,20 +28,20 @@
 .list_item p.admin,
 .list_item p.available,
 .list_item p.shipped {
-   background: #e5faf228;
-   color: #3bb077;
+   background: var(--approve_bg);
+   color: var(--approve_text);
 }
 .list_item p.member,
 .list_item p.outStock,
 .list_item p.rejected {
-   background: #fff0f123;
-   color: #d95087;
+   background: var(--reject_bg);
+   color: var(--reject_text);
 }
 .list_item p.moderator,
 .list_item p.upcoming,
 .list_item p.pending {
-   background: #a5baec13;
-   color: #2a7ade;
+   background: var(--pending_bg);
+   color: var(--pending_text);
 }
 .list_item button {
    background: none;
@@ -57,15 +57,15 @@
 }
 .list_item .put {
    font-size: 2rem;
-   color: rgb(54, 211, 54);
+   color: var(--approve_btn_clr);
 }
 .list_item .reject {
    font-size: 2rem;
-   color: orange;
+   color: var(--reject_btn_clr);
 }
 .list_item .del {
    font-size: 2rem;
-   color: rgb(243, 20, 20);
+   color: var(--del_btn_clr);
 }
 @media (max-width: 1024px) {
    html {
