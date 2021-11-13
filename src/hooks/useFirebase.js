@@ -20,7 +20,7 @@ const useFirebase = () => {
    const [authError, setAuthError] = useState("");
    const [admin, setAdmin] = useState(false);
    const [userAuthToken, setUserAuthToken] = useState("");
-   const [isAdminLoading, setIsAdminLoading] = useState(null);
+   const [isAdminLoading, setIsAdminLoading] = useState(true);
 
    const auth = getAuth();
    const googleProvider = new GoogleAuthProvider();
@@ -85,7 +85,10 @@ const useFirebase = () => {
          .catch((error) => {
             setAuthError(error.message);
          })
-         .finally(() => setIsLoading(false));
+         .finally(() => {
+            setIsLoading(false);
+            // setIsAdminLoading(false);
+         });
    };
 
    // logout
@@ -120,12 +123,13 @@ const useFirebase = () => {
    }, [auth]);
 
    useEffect(() => {
+      setIsAdminLoading(true);
       const url = `https://stormy-oasis-18134.herokuapp.com/users/${user.email}`;
       fetch(url)
          .then((res) => res.json())
          .then((data) => setAdmin(data.admin))
          .catch((error) => setAuthError(error.message))
-         .finally(() => setIsLoading(false));
+         .finally(() => setIsAdminLoading(false));
    }, [user.email]);
 
    const saveUser = (displayName, email, method) => {

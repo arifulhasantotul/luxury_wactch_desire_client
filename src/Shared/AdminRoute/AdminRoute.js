@@ -4,16 +4,16 @@ import { Redirect, Route } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const AdminRoute = ({ children, ...rest }) => {
-   const { user, admin, isLoading } = useAuth();
+   const { user, admin, isLoading, isAdminLoading } = useAuth();
 
-   if (isLoading) {
+   if (isLoading || isAdminLoading) {
       return <Spinner animation="border" variant="warning" className="pt-5" />;
    }
    return (
       <Route
          {...rest}
          render={({ location }) =>
-            user.email && admin ? (
+            admin && user.email ? (
                children
             ) : (
                <Redirect to={{ pathname: "/", state: { from: location } }} />
